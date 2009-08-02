@@ -1,0 +1,8 @@
+*.o
+*.i
+*.s
+*.a
+*.exe
+*.bmx.bak
+main/credentials.txt
+main/test/*
