@@ -38,16 +38,21 @@ Type TBackup
 		Local container:TRackspaceCloudFilesContainer = TBackup.rcf.CreateContainer(containerName)
 		
 		For Local file:TFile = EachIn index.fileList
+			Local skip:Byte = False
 			If ignore <> Null
 				For Local rule:String = EachIn ignore
 					If rule[0] = "*" And file.filename.Contains(rule[1..])
-						Continue
+						skip = True
+						Exit
 					Else If file.filename = rule
-						Continue
+						skip = True
+						Exit
 					End If
 				Next
 			End If
-		
+
+			If skip Then Continue
+			
 			'Strip root directory name + trailing slash
 			Local stripped:String = file.FullName()[directory.Length + 1..]
 			Local cloudFile:TRackspaceCloudFileObject = container.FileObject(stripped)
