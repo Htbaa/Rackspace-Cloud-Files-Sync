@@ -18,7 +18,7 @@ Type TDirectoryIndex
 	Rem
 		bbdoc:
 	End Rem
-	Method TotalSize:Int()
+	Method TotalSize:Long()
 		Local size:Long
 		For Local file:TFile = EachIn Self.fileList
 			size:+file.size
