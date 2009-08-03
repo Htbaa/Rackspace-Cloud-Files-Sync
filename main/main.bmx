@@ -101,8 +101,12 @@ Type TBackup
 
 			If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Processing", file)
 			Local cloudFile:TRackspaceCloudFileObject = container.FileObject(stripped)
-			cloudFile.PutFile(file.FullName())
-			If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Processed", cloudFile)
+			Try
+				cloudFile.PutFile(file.FullName())
+				If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Processed", cloudFile)
+			Catch ex:TRackspaceCloudBaseException
+				If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Error", ex)
+			End Try
 		Next
 		
 		If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Finished", Null)
