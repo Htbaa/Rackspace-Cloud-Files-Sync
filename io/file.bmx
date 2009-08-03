@@ -30,7 +30,7 @@ Type TFile
 	End Rem
 	Method ETag:String()
 		Local stream:TStream = ReadStream(Self.FullName())
-		Local md5Hash:String = MD5(stream)
+		Local md5Hash:String = MD5(stream).ToLower()
 		CloseStream(stream)
 		Return md5Hash
 	End Method
