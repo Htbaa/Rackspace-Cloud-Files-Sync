@@ -10,14 +10,7 @@ TRackspaceCloudFiles.CAInfo = "ssl/cacert.pem"
 
 'Create our TRackspaceCloudFiles object
 Local rcf:TRackspaceCloudFiles = New TRackspaceCloudFiles.Create(credentials[0].Trim(), credentials[1].Trim())
-Try
-'	rcf.Container("test").Remove()
-Catch e:TRackspaceCloudFilesContainerException
-End Try
-
 TBackup.SetRCF(rcf)
-
-TBackup.CreateBackup("F:\Fotos\Christiaan", ["Thumbs.db"], "christiaan")
 
 Type TBackup
 	Global rcf:TRackspaceCloudFiles
