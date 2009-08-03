@@ -111,8 +111,8 @@
   </Preferences>
   <MainWindow>
     <Name>MainWindow</Name>
-    <X>286</X>
-    <Y>50</Y>
+    <X>308</X>
+    <Y>37</Y>
     <width>794</width>
     <height>624</height>
     <Group>NULL</Group>
@@ -940,7 +940,7 @@
     <EVENT_WINDOWSIZE>0</EVENT_WINDOWSIZE>
     <EVENT_WINDOWSIZE_TEXT/>
     <EVENT_WINDOWCLOSE>1</EVENT_WINDOWCLOSE>
-    <EVENT_WINDOWCLOSE_TEXT>End</EVENT_WINDOWCLOSE_TEXT>
+    <EVENT_WINDOWCLOSE_TEXT>Local Gadget1:TGadget, GadgetArray1$[] =[&quot;UsageWindow&quot;] &#10;If GadgetList Gadget1:TGadget =GadgetCommander(Hide,GadgetArray1,GadgetList:TList)&#10;</EVENT_WINDOWCLOSE_TEXT>
     <EVENT_WINDOWACTIVATE>0</EVENT_WINDOWACTIVATE>
     <EVENT_WINDOWACTIVATE_TEXT/>
     <EVENT_WINDOWACCEPT>0</EVENT_WINDOWACCEPT>
@@ -963,6 +963,186 @@
     <PixMap_Path/>
   </Item12>
   <Item13>
+    <Name>LabelDiskUsage</Name>
+    <X>43</X>
+    <Y>460</Y>
+    <width>69</width>
+    <height>14</height>
+    <Group>UsageWindow</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>32</Group_x>
+    <Group_y>450</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name/>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>87750039</Layer>
+    <Lang_Text en="Stored data:"/>
+    <VariableType>0</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+  </Item13>
+  <Item14>
+    <Name>StoredData</Name>
+    <X>122</X>
+    <Y>460</Y>
+    <width>80</width>
+    <height>14</height>
+    <Group>UsageWindow</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>32</Group_x>
+    <Group_y>450</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name>Arial</Font_Name>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>87750039</Layer>
+    <Lang_Text en="0"/>
+    <VariableType>0</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+  </Item14>
+  <Item15>
+    <Name>LabelContainerCount</Name>
+    <X>43</X>
+    <Y>486</Y>
+    <width>69</width>
+    <height>14</height>
+    <Group>UsageWindow</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>32</Group_x>
+    <Group_y>450</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name/>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>87750039</Layer>
+    <Lang_Text en="Containers:"/>
+    <VariableType>0</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+  </Item15>
+  <Item16>
+    <Name>ContainerCount</Name>
+    <X>122</X>
+    <Y>486</Y>
+    <width>80</width>
+    <height>14</height>
+    <Group>UsageWindow</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>32</Group_x>
+    <Group_y>450</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name>Arial</Font_Name>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>87750039</Layer>
+    <Lang_Text en="0"/>
+    <VariableType>0</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+  </Item16>
+  <Item17>
     <Name>Ok2</Name>
     <X>96</X>
     <Y>535</Y>
@@ -1014,186 +1194,6 @@
     <IncBin_Pixmap>0</IncBin_Pixmap>
     <PixMap_Path/>
     <PixMapProperties>0</PixMapProperties>
-  </Item13>
-  <Item14>
-    <Name>LabelDiskUsage</Name>
-    <X>43</X>
-    <Y>460</Y>
-    <width>69</width>
-    <height>14</height>
-    <Group>UsageWindow</Group>
-    <SubGroup>0</SubGroup>
-    <Group_x>32</Group_x>
-    <Group_y>450</Group_y>
-    <CreateCallBack/>
-    <Foreground Red="0" Green="0" Blue="0"/>
-    <Background Red="255" Green="255" Blue="255"/>
-    <Color_Changed>0</Color_Changed>
-    <BColor_Changed>0</BColor_Changed>
-    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
-    <Comment/>
-    <is_disabled>0</is_disabled>
-    <is_hidden>0</is_hidden>
-    <Position_is_locked>0</Position_is_locked>
-    <Size_is_locked>0</Size_is_locked>
-    <Marked>0</Marked>
-    <Design_Range>5</Design_Range>
-    <Virtual_Group>0</Virtual_Group>
-    <Vx>0</Vx>
-    <Vy>0</Vy>
-    <Vw>0</Vw>
-    <Vh>0</Vh>
-    <TypToCreate>4</TypToCreate>
-    <StyleToCreate>0</StyleToCreate>
-    <Font_Name/>
-    <Font_Size>0</Font_Size>
-    <Font_Style>0</Font_Style>
-    <Use_Font>0</Use_Font>
-    <Modifier/>
-    <HotKey/>
-    <Layer>87750039</Layer>
-    <Lang_Text en="Stored data:"/>
-    <VariableType>0</VariableType>
-    <Tooltip en="????"/>
-    <Use_Tooltip>0</Use_Tooltip>
-    <Alpha>0.000000000</Alpha>
-    <Use_Alpha>0</Use_Alpha>
-    <Sensitivity>0</Sensitivity>
-  </Item14>
-  <Item15>
-    <Name>StoredData</Name>
-    <X>122</X>
-    <Y>460</Y>
-    <width>80</width>
-    <height>14</height>
-    <Group>UsageWindow</Group>
-    <SubGroup>0</SubGroup>
-    <Group_x>32</Group_x>
-    <Group_y>450</Group_y>
-    <CreateCallBack/>
-    <Foreground Red="0" Green="0" Blue="0"/>
-    <Background Red="255" Green="255" Blue="255"/>
-    <Color_Changed>0</Color_Changed>
-    <BColor_Changed>0</BColor_Changed>
-    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
-    <Comment/>
-    <is_disabled>0</is_disabled>
-    <is_hidden>0</is_hidden>
-    <Position_is_locked>0</Position_is_locked>
-    <Size_is_locked>0</Size_is_locked>
-    <Marked>0</Marked>
-    <Design_Range>5</Design_Range>
-    <Virtual_Group>0</Virtual_Group>
-    <Vx>0</Vx>
-    <Vy>0</Vy>
-    <Vw>0</Vw>
-    <Vh>0</Vh>
-    <TypToCreate>4</TypToCreate>
-    <StyleToCreate>0</StyleToCreate>
-    <Font_Name>Arial</Font_Name>
-    <Font_Size>0</Font_Size>
-    <Font_Style>0</Font_Style>
-    <Use_Font>0</Use_Font>
-    <Modifier/>
-    <HotKey/>
-    <Layer>87750039</Layer>
-    <Lang_Text en="0"/>
-    <VariableType>0</VariableType>
-    <Tooltip en="????"/>
-    <Use_Tooltip>0</Use_Tooltip>
-    <Alpha>0.000000000</Alpha>
-    <Use_Alpha>0</Use_Alpha>
-    <Sensitivity>0</Sensitivity>
-  </Item15>
-  <Item16>
-    <Name>LabelContainerCount</Name>
-    <X>43</X>
-    <Y>486</Y>
-    <width>69</width>
-    <height>14</height>
-    <Group>UsageWindow</Group>
-    <SubGroup>0</SubGroup>
-    <Group_x>32</Group_x>
-    <Group_y>450</Group_y>
-    <CreateCallBack/>
-    <Foreground Red="0" Green="0" Blue="0"/>
-    <Background Red="255" Green="255" Blue="255"/>
-    <Color_Changed>0</Color_Changed>
-    <BColor_Changed>0</BColor_Changed>
-    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
-    <Comment/>
-    <is_disabled>0</is_disabled>
-    <is_hidden>0</is_hidden>
-    <Position_is_locked>0</Position_is_locked>
-    <Size_is_locked>0</Size_is_locked>
-    <Marked>0</Marked>
-    <Design_Range>5</Design_Range>
-    <Virtual_Group>0</Virtual_Group>
-    <Vx>0</Vx>
-    <Vy>0</Vy>
-    <Vw>0</Vw>
-    <Vh>0</Vh>
-    <TypToCreate>4</TypToCreate>
-    <StyleToCreate>0</StyleToCreate>
-    <Font_Name/>
-    <Font_Size>0</Font_Size>
-    <Font_Style>0</Font_Style>
-    <Use_Font>0</Use_Font>
-    <Modifier/>
-    <HotKey/>
-    <Layer>87750039</Layer>
-    <Lang_Text en="Containers:"/>
-    <VariableType>0</VariableType>
-    <Tooltip en="????"/>
-    <Use_Tooltip>0</Use_Tooltip>
-    <Alpha>0.000000000</Alpha>
-    <Use_Alpha>0</Use_Alpha>
-    <Sensitivity>0</Sensitivity>
-  </Item16>
-  <Item17>
-    <Name>ContainerCount</Name>
-    <X>122</X>
-    <Y>486</Y>
-    <width>80</width>
-    <height>14</height>
-    <Group>UsageWindow</Group>
-    <SubGroup>0</SubGroup>
-    <Group_x>32</Group_x>
-    <Group_y>450</Group_y>
-    <CreateCallBack/>
-    <Foreground Red="0" Green="0" Blue="0"/>
-    <Background Red="255" Green="255" Blue="255"/>
-    <Color_Changed>0</Color_Changed>
-    <BColor_Changed>0</BColor_Changed>
-    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
-    <Comment/>
-    <is_disabled>0</is_disabled>
-    <is_hidden>0</is_hidden>
-    <Position_is_locked>0</Position_is_locked>
-    <Size_is_locked>0</Size_is_locked>
-    <Marked>0</Marked>
-    <Design_Range>5</Design_Range>
-    <Virtual_Group>0</Virtual_Group>
-    <Vx>0</Vx>
-    <Vy>0</Vy>
-    <Vw>0</Vw>
-    <Vh>0</Vh>
-    <TypToCreate>4</TypToCreate>
-    <StyleToCreate>0</StyleToCreate>
-    <Font_Name>Arial</Font_Name>
-    <Font_Size>0</Font_Size>
-    <Font_Style>0</Font_Style>
-    <Use_Font>0</Use_Font>
-    <Modifier/>
-    <HotKey/>
-    <Layer>87750039</Layer>
-    <Lang_Text en="0"/>
-    <VariableType>0</VariableType>
-    <Tooltip en="????"/>
-    <Use_Tooltip>0</Use_Tooltip>
-    <Alpha>0.000000000</Alpha>
-    <Use_Alpha>0</Use_Alpha>
-    <Sensitivity>0</Sensitivity>
   </Item17>
   <Item18>
     <Name>AboutWindow</Name>
