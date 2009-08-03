@@ -51,6 +51,9 @@ Type TProgressBarUpdater
 
 			Case "Finsihed"
 				Notify "Operation completed"
+
+			Case "Error"
+				Notify "An error occurred: " + TRackspaceCloudBaseException(context).ToString()
 		End Select
 
 		Self.UpdateProgressBars()
