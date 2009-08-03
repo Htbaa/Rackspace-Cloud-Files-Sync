@@ -1,0 +1,11 @@
+'Start of external GadgetIni File
+'Your additional code should be here!
+Global chosenDirectory:String
+
+TProgressBarUpdater.GadgetList = GadgetList
+Local progressUpdater:TProgressBarUpdater = New TProgressBarUpdater
+TBackup.SetMsgReceiver(progressUpdater)
+
+TBackup.rcf.SetProgressCallback(TProgressBarUpdater.progressFunction, progressUpdater)
+
+'End Of external GadgetIni File

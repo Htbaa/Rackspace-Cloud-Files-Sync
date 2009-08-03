@@ -1,0 +1,82 @@
+'Start of external Append File
+'Your additional code should be here!
+
+Type TProgressBarUpdater
+	Field currentFileSize:Long
+	Field currentFileTotalSize:Long
+	Field totalSize:Long
+	Field dataProcessed:Long
+	Field totalFileCount:Long
+	Field fileCount:Long
+
+	Global GadgetList:TList
+
+	Method SendMessage:Object(message:Object, context:Object)
+		DebugLog String(message)
+		Select String(message)
+			Case "DirectoryIndex"
+				Local Gadget1:TGadget, GadgetArray1$[] = ["ProgBarTotal"] 
+				If GadgetList Gadget1:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray1,TProgressBarUpdater.GadgetList:TList)
+				UpdateProgBar(Gadget1, 0.0)
+
+				Local Gadget2:TGadget, GadgetArray2$[] = ["ProgBarCurrent"] 
+				If GadgetList Gadget2:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray2,TProgressBarUpdater.GadgetList:TList)
+				UpdateProgBar(Gadget2, 0.0)
+
+				Local Gadget3:TGadget, GadgetArray3$[] = ["LabelCurrentFile"] 
+				If GadgetList Gadget3:TGadget = GadgetCommander(SetText,GadgetArray3,TProgressBarUpdater.GadgetList:TList, "" )
+				
+
+				Self.totalSize = TDirectoryIndex(context).TotalSize()
+				Self.fileCount = 0
+				Self.totalFileCount = TDirectoryIndex(context).fileList.Count()
+
+			Case "Processing"
+				Local Gadget2:TGadget, GadgetArray2$[] = ["ProgBarCurrent"] 
+				If GadgetList Gadget2:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray2,TProgressBarUpdater.GadgetList:TList)
+				UpdateProgBar(Gadget2, 0.0)
+
+				Local Gadget4:TGadget, GadgetArray4$[] = ["LabelCurrentFile"] 
+				If GadgetList Gadget4:TGadget = GadgetCommander(SetText,GadgetArray4,TProgressBarUpdater.GadgetList:TList, TFile(context).FullName() )
+				
+			Case "Processed"
+				Local cloudFile:TRackspaceCloudFileObject = TRackspaceCloudFileObject(context)
+				Self.dataProcessed :+ cloudFile.Size()
+				Self.fileCount :+ 1
+
+			Case "Skipping"
+				Local cloudFile:TRackspaceCloudFileObject = TRackspaceCloudFileObject(context)
+				Self.dataProcessed :+ cloudFile.Size()
+				Self.fileCount :+ 1
+
+			Case "Finsihed"
+				Notify "Operation completed"
+		End Select
+
+		Self.UpdateProgressBars()
+	End Method
+
+	Method UpdateProgressBars()
+		Local Gadget1:TGadget, GadgetArray1$[] = ["ProgBarTotal"] 
+		If GadgetList Gadget1:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray1,GadgetList:TList)
+		If Self.totalSize > 0 Then UpdateProgBar(Gadget1, Double(Double(Self.fileCount) / Double(Self.totalFileCount)))
+
+		Local Gadget5:TGadget, GadgetArray5$[] = ["ProgBarCurrent"] 
+		If GadgetList Gadget5:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray5,GadgetList:TList)
+		If Self.currentFileTotalSize > 0 Then UpdateProgBar(Gadget5, Double(Double(Self.currentFileSize) / Double(Self.currentFileTotalSize)))		
+
+	End Method
+
+	Function progressFunction:Int(data:Object, dltotal:Double, dlnow:Double, ultotal:Double, ulnow:Double)
+		Local updater:TProgressBarUpdater = TProgressBarUpdater(data)
+		updater.currentFileSize = ulnow
+		updater.currentFileTotalSize = ultotal
+
+DebugLog ulnow
+		updater.UpdateProgressBars()
+
+		Return 0
+	End Function
+End Type
+
+'End Of external Append File
