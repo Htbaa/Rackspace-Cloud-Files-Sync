@@ -24,4 +24,14 @@ Type TFile
 	Method FullName:String()
 		Return Self.path + "/" + Self.filename
 	End Method
+	
+	Rem
+		bbdoc:
+	End Rem
+	Method ETag:String()
+		Local stream:TStream = ReadStream(Self.FullName())
+		Local md5Hash:String = MD5(stream)
+		CloseStream(stream)
+		Return md5Hash
+	End Method
 End Type
