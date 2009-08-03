@@ -49,7 +49,7 @@ Type TProgressBarUpdater
 				Self.dataProcessed :+ cloudFile.Size()
 				Self.fileCount :+ 1
 
-			Case "Finsihed"
+			Case "Finished"
 				Notify "Operation completed"
 
 			Case "Error"
