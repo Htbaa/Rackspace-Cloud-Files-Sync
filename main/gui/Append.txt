@@ -45,8 +45,15 @@ Type TProgressBarUpdater
 				Self.fileCount :+ 1
 
 			Case "Skipping"
-				Local cloudFile:TRackspaceCloudFileObject = TRackspaceCloudFileObject(context)
-				Self.dataProcessed :+ cloudFile.Size()
+				Local file:TFile= TFile(context)
+
+				Local Gadget3:TGadget, GadgetArray3$[] = ["LabelCurrentFile"] 
+				If GadgetList Gadget3:TGadget = GadgetCommander(SetText,GadgetArray3,TProgressBarUpdater.GadgetList:TList, file.FullName() )
+
+				Self.currentFileSize = file.size
+				Self.currentFileTotalSize = file.size
+				
+				Self.dataProcessed :+ file.size
 				Self.fileCount :+ 1
 
 			Case "Finished"
