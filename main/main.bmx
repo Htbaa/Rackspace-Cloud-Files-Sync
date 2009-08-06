@@ -74,7 +74,7 @@ Type TBackup
 	End Function
 		
 	Rem
-		bbdoc:
+		bbdoc: Safety check to see if a couple of requirements have been met
 	End Rem	
 	Function _check(_type:String)
 		If Not TBackup.rcf Then Throw "TBackup.rcf:TRackspaceCloudFiles hasn't been set yet!"
@@ -90,7 +90,9 @@ Type TBackup
 	End Function
 	
 	Rem
-		bbdoc:
+		bbdoc: Creates a backup in a container
+		about: This operations syncs the local directory with the container online.
+		Any file that no longer exists offline will be deleted online as well
 	End Rem	
 	Function CreateBackup:Byte()
 		TBackup._check("backup")
@@ -229,13 +231,13 @@ Type TBackup
 			
 			'Check if file exists
 			If FileType(localFile) = FILETYPE_FILE
-
+				'Retrieve meta data
 				fileObject.Head()
 				'ETag mismatch - Delete local file
 				If fileObject.ETag() <> file.ETag()
 					If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Removing", localFile)
 					DeleteFile(localFile)
-				'ETag matches, the file will be left untouched
+				'ETag matches, the file will be left untouched and won't be downloaded
 				Else
 					If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Skipping", file)
 					Continue
