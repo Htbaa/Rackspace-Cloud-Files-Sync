@@ -176,18 +176,43 @@ Type TBackup
 	End Function
 	
 	Rem
-		bbdoc:
+		bbdoc: Restore the files from a container to the local file system
+		about: Be very careful to where you restore the data to. If a file doesn't exist
+		in the container than the local file will be deleted by default.
 	End Rem	
-	Function RestoreBackup:Byte()
+	Function RestoreBackup:Byte(deleteLocalFiles:Byte = True)
 		TBackup._check("restore")
 		
 		Local index:TDirectoryIndex = New TDirectoryIndex.Create(TBackup.restoreDirectory)
-
 		If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("DirectoryIndex", index)
 		
-		Local container:TRackspaceCloudFilesContainer = TBackup.rcf.CreateContainer(TBackup.restoreContainer)
-
+		'Use an existing container
+		Local container:TRackspaceCloudFilesContainer = TBackup.rcf.Container(TBackup.restoreContainer)
+		If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Container", container)
+		
 		Local objectList:TList = container.Objects()
+		
+		'Check if the restore directory needs to be cleaned of non-existant online files
+		If deleteLocalFiles
+		'Check if there are local files that are no longer available online
+		'If so, delete the local files
+			For Local file:TFile = EachIn index.fileList
+				Local remove:Byte = True
+				For Local fileObject:TRackspaceCloudFileObject = EachIn objectList
+					If file.FullName().Replace(TBackup.restoreDirectory + "/", "") = fileObject.Name()
+						remove = False
+						Exit
+					End If
+				Next
+				
+				'Delete local file
+				If remove
+					DeleteFile(file.FullName())
+				End If
+			Next
+		End If
+		
+		'Start processing every remote file
 		For Local fileObject:TRackspaceCloudFileObject = EachIn objectList
 			'Extract directory from filename
 			Local parts:String[] = ExtractDir(fileObject.Name()).Split("/")
