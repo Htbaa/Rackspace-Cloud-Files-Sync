@@ -62,7 +62,7 @@ Type TProgressBarUpdater
 	Method UpdateProgressBars()
 		Local Gadget1:TGadget, GadgetArray1$[] = ["ProgBarTotal"] 
 		If GadgetList Gadget1:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray1,GadgetList:TList)
-		If Self.totalSize > 0 Then UpdateProgBar(Gadget1, Double(Double(Self.fileCount) / Double(Self.totalFileCount)))
+		If Self.totalFileCount> 0 Then UpdateProgBar(Gadget1, Double(Double(Self.fileCount) / Double(Self.totalFileCount)))
 
 		Local Gadget5:TGadget, GadgetArray5$[] = ["ProgBarCurrent"] 
 		If GadgetList Gadget5:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray5,GadgetList:TList)
