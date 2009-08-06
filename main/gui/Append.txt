@@ -11,26 +11,35 @@ Type TProgressBarUpdater
 
 	Global GadgetList:TList
 
+	Method InitProgressBars()
+		Local Gadget1:TGadget, GadgetArray1$[] = ["ProgBarTotal"] 
+		If GadgetList Gadget1:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray1,TProgressBarUpdater.GadgetList:TList)
+		UpdateProgBar(Gadget1, 0.0)
+
+		Local Gadget2:TGadget, GadgetArray2$[] = ["ProgBarCurrent"] 
+		If GadgetList Gadget2:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray2,TProgressBarUpdater.GadgetList:TList)
+		UpdateProgBar(Gadget2, 0.0)
+
+		Local Gadget3:TGadget, GadgetArray3$[] = ["LabelCurrentFile"] 
+		If GadgetList Gadget3:TGadget = GadgetCommander(SetText,GadgetArray3,TProgressBarUpdater.GadgetList:TList, "" )
+	End Method
+
 	Method SendMessage:Object(message:Object, context:Object)
 		DebugLog String(message)
 		Select String(message)
 			Case "DirectoryIndex"
-				Local Gadget1:TGadget, GadgetArray1$[] = ["ProgBarTotal"] 
-				If GadgetList Gadget1:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray1,TProgressBarUpdater.GadgetList:TList)
-				UpdateProgBar(Gadget1, 0.0)
-
-				Local Gadget2:TGadget, GadgetArray2$[] = ["ProgBarCurrent"] 
-				If GadgetList Gadget2:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray2,TProgressBarUpdater.GadgetList:TList)
-				UpdateProgBar(Gadget2, 0.0)
-
-				Local Gadget3:TGadget, GadgetArray3$[] = ["LabelCurrentFile"] 
-				If GadgetList Gadget3:TGadget = GadgetCommander(SetText,GadgetArray3,TProgressBarUpdater.GadgetList:TList, "" )
-				
+				Self.InitProgressBars()
 
 				Self.totalSize = TDirectoryIndex(context).TotalSize()
 				Self.fileCount = 0
 				Self.totalFileCount = TDirectoryIndex(context).fileList.Count()
 
+			Case "Container"
+				Local container:TRackspaceCloudFilesContainer = TRackspaceCloudFilesContainer(context)
+				Self.InitProgressBars()
+				Self.totalSize = container.BytesUsed()
+				Self.fileCount = 0
+				Self.totalFileCount = container.ObjectCount()
 			Case "Processing"
 				Local Gadget2:TGadget, GadgetArray2$[] = ["ProgBarCurrent"] 
 				If GadgetList Gadget2:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray2,TProgressBarUpdater.GadgetList:TList)
@@ -79,8 +88,14 @@ Type TProgressBarUpdater
 
 	Function progressFunction:Int(data:Object, dltotal:Double, dlnow:Double, ultotal:Double, ulnow:Double)
 		Local updater:TProgressBarUpdater = TProgressBarUpdater(data)
-		updater.currentFileSize = ulnow
-		updater.currentFileTotalSize = ultotal
+		
+		If TBackup.backupDirectory.Length > 0
+			updater.currentFileSize = ulnow
+			updater.currentFileTotalSize = ultotal
+		Else If TBackup.restoreDirectory.Length > 0
+			updater.currentFileSize = dlnow
+			updater.currentFileTotalSize = dltotal
+		End If
 
 		updater.UpdateProgressBars()
 		PollSystem()
