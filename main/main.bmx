@@ -12,31 +12,76 @@ TRackspaceCloudFiles.CAInfo = "ssl/cacert.pem"
 Local rcf:TRackspaceCloudFiles = New TRackspaceCloudFiles.Create(credentials[0].Trim(), credentials[1].Trim())
 TBackup.SetRCF(rcf)
 
+Rem
+	bbdoc:
+End Rem
 Type TBackup
 	Global rcf:TRackspaceCloudFiles
 	Global msgReceiver:Object
+
+	'Settings for backup
+	Global backupDirectory:String
+	Global backupContainer:String
+	Global backupIgnore:String[]
 	
+	'Settings for restoring
+	Global restoreDirectory:String
+	Global restoreContainer:String
+	
+	Rem
+		bbdoc:
+	End Rem	
 	Function SetRCF(rcf:TRackspaceCloudFiles)
 		TBackup.rcf = rcf
 	End Function
-	
+
+	Rem
+		bbdoc:
+	End Rem	
 	Function SetMsgReceiver(msgReceiver:Object)
 		TBackup.msgReceiver = msgReceiver
 	End Function
 	
-	Function _check()
-		If Not TBackup.rcf
-			Throw "TBackup.rcf:TRackspaceCloudFiles hasn't been set yet!"
-		End If
+
+	Rem
+		bbdoc:
+	End Rem	
+	Function SetBackupDirectory(backupDirectory:String)
+		TBackup.backupDirectory = backupDirectory
+	End Function
+
+	Rem
+		bbdoc:
+	End Rem	
+	Function SetBackupContainer(backupContainer:String)
+		TBackup.backupContainer = backupContainer
+	End Function
+
+	Rem
+		bbdoc:
+	End Rem	
+	Function _check(_type:String)
+		If Not TBackup.rcf Then Throw "TBackup.rcf:TRackspaceCloudFiles hasn't been set yet!"
+		
+		Select _type
+			Case "backup"
+				If TBackup.backupDirectory.Length = 0 Then Throw "TBackup.backupDirectory hasn't been set yet!"
+				If TBackup.backupContainer.Length = 0 Then Throw "TBackup.backupContainer hasn't been set yet!"
+			Case "restore"
+				Throw "Not yet supported!"
+		End Select
 	End Function
 	
-	Function CreateBackup:Byte(directory:String, ignore:String[], containerName:String)
-		TBackup._check()
-		Local index:TDirectoryIndex = New TDirectoryIndex.Create(directory)
+	Rem
+		bbdoc:
+	End Rem	
+	Function CreateBackup:Byte()
+		TBackup._check("backup")
+		Local index:TDirectoryIndex = New TDirectoryIndex.Create(TBackup.backupDirectory)
 
 		If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("DirectoryIndex", index)
 		
-		Local container:TRackspaceCloudFilesContainer = TBackup.rcf.CreateContainer(containerName)
+		Local container:TRackspaceCloudFilesContainer = TBackup.rcf.CreateContainer(TBackup.backupContainer)
 
 		Local objectList:TList = container.Objects()
 		
@@ -44,7 +89,7 @@ Type TBackup
 		For Local fileObject:TRackspaceCloudFileObject = EachIn objectList
 			Local remove:Byte = True
 			For Local file:TFile = EachIn index.fileList
-				Local stripped:String = file.FullName()[directory.Length + 1..]
+				Local stripped:String = file.FullName()[TBackup.backupDirectory.Length + 1..]
 				If stripped = fileObject.Name()
 					remove = False
 					Exit
@@ -61,8 +106,8 @@ Type TBackup
 		For Local file:TFile = EachIn index.fileList
 			Local skip:Byte = False
 			'Match filename against ignore list
-			If ignore <> Null
-				For Local rule:String = EachIn ignore
+			If TBackup.backupIgnore <> Null
+				For Local rule:String = EachIn TBackup.backupIgnore
 					If rule[0] = "*" And file.filename.Contains(rule[1..])
 						skip = True
 						Exit
@@ -74,7 +119,7 @@ Type TBackup
 			End If
 
 			'Strip root directory name + trailing slash
-			Local stripped:String = file.FullName()[directory.Length + 1..]
+			Local stripped:String = file.FullName()[TBackup.backupDirectory.Length + 1..]
 			
 			'Skip existing files
 			For Local fileObject:TRackspaceCloudFileObject = EachIn objectList
@@ -92,7 +137,7 @@ Type TBackup
 					
 					'ETag's matched so there's no reason to not skip this one
 					skip = True
-					If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Skipping", fileObject)
+					If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Skipping", file)
 					Exit
 				End If
 			Next
@@ -113,8 +158,11 @@ Type TBackup
 		Return True
 	End Function
 	
-	Function RestoreBackup:Byte(container:String, directory:String)
-		TBackup._check()
+	Rem
+		bbdoc:
+	End Rem	
+	Function RestoreBackup:Byte()
+		TBackup._check("restore")
 		Return False
 	End Function
 End Type
