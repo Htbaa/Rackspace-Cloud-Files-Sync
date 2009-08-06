@@ -222,7 +222,7 @@
     <Vw>0</Vw>
     <Vh>0</Vh>
     <TypToCreate>13</TypToCreate>
-    <StyleToCreate>559</StyleToCreate>
+    <StyleToCreate>557</StyleToCreate>
     <Font_Name/>
     <Font_Size>0</Font_Size>
     <Font_Style>0</Font_Style>
@@ -285,8 +285,8 @@
     <height>23</height>
     <Group>Window</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>45</Group_x>
-    <Group_y>68</Group_y>
+    <Group_x>44</Group_x>
+    <Group_y>67</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -332,8 +332,8 @@
     <height>23</height>
     <Group>Window</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>45</Group_x>
-    <Group_y>68</Group_y>
+    <Group_x>44</Group_x>
+    <Group_y>67</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -379,8 +379,8 @@
     <height>15</height>
     <Group>Window</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>45</Group_x>
-    <Group_y>68</Group_y>
+    <Group_x>44</Group_x>
+    <Group_y>67</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -424,8 +424,8 @@
     <height>15</height>
     <Group>Window</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>45</Group_x>
-    <Group_y>68</Group_y>
+    <Group_x>44</Group_x>
+    <Group_y>67</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
