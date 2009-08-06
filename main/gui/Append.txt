@@ -82,7 +82,6 @@ Type TProgressBarUpdater
 		updater.currentFileSize = ulnow
 		updater.currentFileTotalSize = ultotal
 
-DebugLog ulnow
 		updater.UpdateProgressBars()
 		PollSystem()
 
