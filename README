@@ -1,0 +1,17 @@
+RACKSPACE CLOUD FILES SYNC
+
+An application to synchronize local directories with a Rackspace Cloud Files container.
+This application allows you to backup up your files remotely and if needed at a later point restore the files.
+	
+Currently the code is divided into 2 parts. The base code which takes care of the backing up, restoring, application directory setup etc.
+The other part is the GUI. The GUI uses the base code but all functionality is based in the base code. This will allow for easier creation of other GUI's or commandline programs.
+
+So far all code is being tested on Windows Vista but should work without problems on Windows XP and Linux as well.
+
+
+REQUIREMENTS
+
+To build the application you need htbaapub.mod/rackspacecloudfiles.mod which you can get from https://github.com/Htbaa/htbaapub.mod/tree
+You also need bah.mod/volumes.mod which is available from http://code.google.com/p/maxmods/
+To build the GUI MaxGUI is required. This module isn't free but it's very cheap and can be bought at http://www.blitzmax.com
+Logic Gui (http://jsp.logiczone.de/) is used to build the GUI
