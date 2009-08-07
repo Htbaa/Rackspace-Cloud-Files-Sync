@@ -1,16 +1,4 @@
-'Make sure a file called credentials.txt is available
-'On the first line the username is expected. On the second line the API key is expected.
-Local credentials:String[] = LoadText("credentials.txt").Split("~n")
-If Not credentials.Length = 2
-	RuntimeError("Invalid configuration file!")
-End If
-
-'Load our certificates
-TRackspaceCloudFiles.CAInfo = "ssl/cacert.pem"
-
-'Create our TRackspaceCloudFiles object
-Local rcf:TRackspaceCloudFiles = New TRackspaceCloudFiles.Create(credentials[0].Trim(), credentials[1].Trim())
-TBackup.SetRCF(rcf)
+TApp.Setup()
 
 Rem
 	bbdoc:
@@ -41,7 +29,6 @@ Type TBackup
 	Function SetMsgReceiver(msgReceiver:Object)
 		TBackup.msgReceiver = msgReceiver
 	End Function
-	
 
 	Rem
 		bbdoc:
@@ -62,8 +49,6 @@ Type TBackup
 	End Rem
 	Function SetRestoreDirectory(restoreDirectory:String)
 		TBackup.restoreDirectory = restoreDirectory
-		'Check if our backup directory is valid
-		If FileType(TBackup.restoreDirectory) <> FILETYPE_DIR Then Throw "TBackup.restoreDirectory isn't a directory!"
 	End Function
 
 	Rem
@@ -78,13 +63,15 @@ Type TBackup
 	End Rem	
 	Function _check(_type:String)
 		If Not TBackup.rcf Then Throw "TBackup.rcf:TRackspaceCloudFiles hasn't been set yet!"
-		
+
 		Select _type
 			Case "backup"
 				If TBackup.backupDirectory.Length = 0 Then Throw "TBackup.backupDirectory hasn't been set yet!"
+				If FileType(TBackup.backupDirectory) <> FILETYPE_DIR Then Throw "TBackup.backupDirectory isn't a directory!"
 				If TBackup.backupContainer.Length = 0 Then Throw "TBackup.backupContainer hasn't been set yet!"
 			Case "restore"
 				If TBackup.restoreDirectory.Length = 0 Then Throw "TBackup.restoreDirectory hasn't been set yet!"
+				If FileType(TBackup.restoreDirectory) <> FILETYPE_DIR Then Throw "TBackup.restoreDirectory isn't a directory!"
 				If TBackup.restoreContainer.Length = 0 Then Throw "TBackup.restoreContainer hasn't been set yet!"
 		End Select
 	End Function
