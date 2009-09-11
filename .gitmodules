@@ -1,0 +1,3 @@
+[submodule "mods/htbaapub.mod/rackspacecloudfiles.mod"]
+	path = mods/htbaapub.mod/rackspacecloudfiles.mod
+	url = git://github.com/Htbaa/rackspacecloudfiles.mod.git
