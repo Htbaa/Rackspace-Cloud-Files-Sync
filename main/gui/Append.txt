@@ -1,6 +1,14 @@
 'Start of external Append File
 'Your additional code should be here!
 
+Local window:TWindow = New TWindow
+window.CreateForm()
+window.Init()
+While TForm.FormsExist()
+	WaitSystem
+Wend
+
+
 Type TProgressBarUpdater
 	Field currentFileSize:Long
 	Field currentFileTotalSize:Long
