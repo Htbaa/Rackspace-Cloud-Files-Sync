@@ -170,6 +170,9 @@ Type TBackup
 		in the container than the local file will be deleted by default.
 	End Rem	
 	Function RestoreBackup:Byte(deleteLocalFiles:Byte = True)
+		?Threaded
+		Local threads:TThread[3]
+		?
 		TBackup._check("restore")
 		
 		Local index:TDirectoryIndex = New TDirectoryIndex.Create(TBackup.restoreDirectory)
@@ -234,7 +237,29 @@ Type TBackup
 			'Download the file
 			Try
 				If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Processing", file)
-				fileObject.GetFile(localFile)
+				?Threaded
+					Local TDData:TThreadedDownloadData = New TThreadedDownloadData
+					TDData.localFile = localFile
+					TDData.fileObject = fileObject
+					
+					
+					'Wait for a thread to get released
+					Local a:Byte = True
+					While a
+						Delay 100
+						For Local i:Int = 0 To threads.Length - 1
+							If threads[i] = Null Or Not ThreadRunning(threads[i])
+								threads[i] = CreateThread(TBackup._ThreadedDownload, TDData)
+								DebugLog "Thread " + i + " spawned for " + localFile
+								a = False
+								Exit
+							End If
+						Next
+					WEnd
+					
+				?Not Threaded
+					fileObject.GetFile(localFile)
+				?
 				If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Processed", fileObject)
 			Catch ex:TRackspaceCloudBaseException
 				If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Error", ex)
@@ -244,4 +269,20 @@ Type TBackup
 		If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Finished", Null)
 		Return True
 	End Function
+
+	
+	'Private function
+	Function _ThreadedDownload:Object(data:Object)
+		If TThreadedDownloadData(data)
+			Local TDData:TThreadedDownloadData = TThreadedDownloadData(data)
+			TDData.fileObject.GetFile(TDData.localFile)
+		End If
+		Return data
+	End Function
+End Type
+
+'Private structure
+Type TThreadedDownloadData
+	Field localFile:String
+	Field fileObject:TRackspaceCloudFileObject
 End Type
