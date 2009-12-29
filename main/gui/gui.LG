@@ -2,7 +2,7 @@
 <root>
   <Preferences>
     <Creator>Logic Gui</Creator>
-    <Version>5.0 Build 412</Version>
+    <Version>5.1 Build 422</Version>
     <Push_Button_Counter>3</Push_Button_Counter>
     <TextField_Counter>3</TextField_Counter>
     <Panels_Counter>5</Panels_Counter>
@@ -29,6 +29,7 @@
     <Notes_Counter>0</Notes_Counter>
     <Colors_Counter>0</Colors_Counter>
     <ProxyScrollPanel_Counter>0</ProxyScrollPanel_Counter>
+    <Image_Counter>0</Image_Counter>
     <Use_GadgetCommander>1</Use_GadgetCommander>
     <Parser>
       <LastParseText/>
@@ -72,6 +73,8 @@
       <TForm_URL>ExternalTypes\TForm.bmx</TForm_URL>
       <Use_TFormTimer>0</Use_TFormTimer>
       <TFormTimer_URL>ExternalTypes/TFormTimer.bmx</TFormTimer_URL>
+      <UseMaxGuiLanguage>0</UseMaxGuiLanguage>
+      <EmbedExistingLanguages>0</EmbedExistingLanguages>
       <Timer>0</Timer>
       <Layer>
         6
@@ -80,6 +83,8 @@
           <ID>0</ID>
           <IsVisible>1</IsVisible>
           <CreatesOutput>1</CreatesOutput>
+          <IsDisabled>0</IsDisabled>
+          <IsAnInternalLayer>0</IsAnInternalLayer>
           <TransLevel>1.00000000</TransLevel>
           <LayerItems/>
         </Layer1>
@@ -88,6 +93,8 @@
           <ID>5092052</ID>
           <IsVisible>1</IsVisible>
           <CreatesOutput>1</CreatesOutput>
+          <IsDisabled>0</IsDisabled>
+          <IsAnInternalLayer>1</IsAnInternalLayer>
           <TransLevel>1.00000000</TransLevel>
           <LayerItems/>
         </Layer2>
@@ -96,6 +103,8 @@
           <ID>87058908</ID>
           <IsVisible>1</IsVisible>
           <CreatesOutput>1</CreatesOutput>
+          <IsDisabled>0</IsDisabled>
+          <IsAnInternalLayer>0</IsAnInternalLayer>
           <TransLevel>1.00000000</TransLevel>
           <LayerItems/>
         </Layer3>
@@ -104,6 +113,8 @@
           <ID>87750039</ID>
           <IsVisible>1</IsVisible>
           <CreatesOutput>1</CreatesOutput>
+          <IsDisabled>0</IsDisabled>
+          <IsAnInternalLayer>0</IsAnInternalLayer>
           <TransLevel>1.00000000</TransLevel>
           <LayerItems/>
         </Layer4>
@@ -112,6 +123,8 @@
           <ID>88223015</ID>
           <IsVisible>1</IsVisible>
           <CreatesOutput>1</CreatesOutput>
+          <IsDisabled>0</IsDisabled>
+          <IsAnInternalLayer>0</IsAnInternalLayer>
           <TransLevel>1.00000000</TransLevel>
           <LayerItems/>
         </Layer5>
@@ -120,6 +133,8 @@
           <ID>21540232</ID>
           <IsVisible>1</IsVisible>
           <CreatesOutput>1</CreatesOutput>
+          <IsDisabled>0</IsDisabled>
+          <IsAnInternalLayer>0</IsAnInternalLayer>
           <TransLevel>1.00000000</TransLevel>
           <LayerItems/>
         </Layer6>
@@ -137,8 +152,8 @@
   </Preferences>
   <MainWindow>
     <Name>MainWindow</Name>
-    <X>427</X>
-    <Y>35</Y>
+    <X>277</X>
+    <Y>29</Y>
     <width>929</width>
     <height>687</height>
     <Group>NULL</Group>
