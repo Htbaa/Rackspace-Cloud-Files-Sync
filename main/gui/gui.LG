@@ -2111,7 +2111,7 @@
           <Text en="Setup"/>
           <IconStripPath IconNumber="-1"/>
         </Menu_Entry>
-        <Menu_Entry Name="Close" Tag="104" disabled="0" checked="0" Use_Event_MA="1" Event_MA_Text="If Confirm(&quot;Are you sure you want to close the application?&quot;)&#10;&#9;End&#10;End If" Hotkey="" Modifier="" Kids="0" Index="3" VariableType="2">
+        <Menu_Entry Name="Close" Tag="104" disabled="0" checked="0" Use_Event_MA="1" Event_MA_Text="End" Hotkey="" Modifier="" Kids="0" Index="3" VariableType="2">
           <Text en="Close"/>
           <IconStripPath IconNumber="-1"/>
         </Menu_Entry>
