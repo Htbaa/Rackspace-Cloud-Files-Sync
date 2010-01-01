@@ -14,4 +14,4 @@ REQUIREMENTS
 To build the application you need rackspacecloudfiles.mod which you can get from https://github.com/Htbaa/rackspacecloudfiles.mod. You'll also need rest.mod which you can get from https://github.com/Htbaa/rest.mod.
 You also need bah.mod/volumes.mod which is available from http://code.google.com/p/maxmods/
 To build the GUI MaxGUI is required. This module isn't free but it's very cheap and can be purchased at http://www.blitzmax.com
-Logic Gui 4.2 (http://jsp.logiczone.de/) is used to build the GUI
+Logic Gui 5.1 (http://jsp.logiczone.de/) is used to build the GUI
