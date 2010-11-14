@@ -10,4 +10,7 @@ Import MaxGUI.ProxyGadgets 		'Uncomment when using a proxy gadget
 Import htbaapub.rackspacecloudfiles
 Import "../MossoSync.bmx"
 
+Const APP_VERSION:String = "1.01"
+AppTitle = "Rackspace Cloud Files Sync v" + APP_VERSION
+
 'End Of external Header File
