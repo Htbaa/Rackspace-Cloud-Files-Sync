@@ -106,7 +106,9 @@ Type TProgressBarUpdater
 		End If
 
 		updater.UpdateProgressBars()
-		PollSystem()
+		'Make sure the OS can redraw the GUI
+		'https://github.com/Htbaa/Rackspace-Cloud-Files-Sync/issues/7
+		Driver.Poll
 
 		Return 0
 	End Function
