@@ -6,7 +6,7 @@
     <Push_Button_Counter>3</Push_Button_Counter>
     <TextField_Counter>3</TextField_Counter>
     <Panels_Counter>5</Panels_Counter>
-    <Labels_Counter>14</Labels_Counter>
+    <Labels_Counter>15</Labels_Counter>
     <Slider_Counter>0</Slider_Counter>
     <Combo_Counter>1</Combo_Counter>
     <ListBox_Counter>2</ListBox_Counter>
@@ -1487,7 +1487,7 @@
     <X>259</X>
     <Y>463</Y>
     <width>205</width>
-    <height>102</height>
+    <height>167</height>
     <Group>MainWindow</Group>
     <SubGroup>0</SubGroup>
     <Group_x>0</Group_x>
@@ -1634,6 +1634,57 @@
     <CustomText en="????"/>
   </Item21>
   <Item22>
+    <Name>AboutOpenSSL</Name>
+    <X>271</X>
+    <Y>555</Y>
+    <width>179</width>
+    <height>60</height>
+    <Group>AboutWindow</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>262</Group_x>
+    <Group_y>483</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="1" Right="1" Top="1" Bottom="1"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>16</StyleToCreate>
+    <Font_Name>Arial</Font_Name>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>88223015</Layer>
+    <Lang_Text en="This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+  </Item22>
+  <Item23>
     <Name>SetupWindow</Name>
     <X>560</X>
     <Y>401</Y>
@@ -1730,8 +1781,8 @@
     <WindowGroup/>
     <CanDock>0</CanDock>
     <Use_AppEvents>0</Use_AppEvents>
-  </Item22>
-  <Item23>
+  </Item23>
+  <Item24>
     <Name>GroupCredentials</Name>
     <X>563</X>
     <Y>421</Y>
@@ -1817,8 +1868,8 @@
     <Use_Toolbar_Extra>0</Use_Toolbar_Extra>
     <ToolbarType>0</ToolbarType>
     <ToolbarItems/>
-  </Item23>
-  <Item24>
+  </Item24>
+  <Item25>
     <Name>Label9</Name>
     <X>576</X>
     <Y>448</Y>
@@ -1868,8 +1919,8 @@
     <AnchorY>0</AnchorY>
     <AnchorW>0</AnchorW>
     <AnchorH>0</AnchorH>
-  </Item24>
-  <Item25>
+  </Item25>
+  <Item26>
     <Name>Label10</Name>
     <X>576</X>
     <Y>477</Y>
@@ -1919,8 +1970,8 @@
     <AnchorY>0</AnchorY>
     <AnchorW>0</AnchorW>
     <AnchorH>0</AnchorH>
-  </Item25>
-  <Item26>
+  </Item26>
+  <Item27>
     <Name>TextFieldAPIKey</Name>
     <X>656</X>
     <Y>473</Y>
@@ -1976,8 +2027,8 @@
     <EVENT_GADGETACTION_TEXT/>
     <EVENT_GADGETLOSTFOCUS>0</EVENT_GADGETLOSTFOCUS>
     <EVENT_GADGETLOSTFOCUS_TEXT/>
-  </Item26>
-  <Item27>
+  </Item27>
+  <Item28>
     <Name>TextFieldUsername</Name>
     <X>656</X>
     <Y>444</Y>
@@ -2033,8 +2084,8 @@
     <EVENT_GADGETACTION_TEXT/>
     <EVENT_GADGETLOSTFOCUS>0</EVENT_GADGETLOSTFOCUS>
     <EVENT_GADGETLOSTFOCUS_TEXT/>
-  </Item27>
-  <Item28>
+  </Item28>
+  <Item29>
     <Name>Ok3</Name>
     <X>680</X>
     <Y>521</Y>
@@ -2092,7 +2143,7 @@
     <IncBin_Pixmap>0</IncBin_Pixmap>
     <PixMap_Path/>
     <PixMapProperties>0</PixMapProperties>
-  </Item28>
+  </Item29>
   <Menu IncBin_Media="0">
     <Menu_0>
       App
