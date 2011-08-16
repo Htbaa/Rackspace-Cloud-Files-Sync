@@ -17,19 +17,20 @@ Type TProgressBarUpdater
 	Field totalFileCount:Long
 	Field fileCount:Long
 
-	Global GadgetList:TList
+	Field ProgBarTotal:TGadget
+	Field ProgBarCurrent:TGadget
+	Field LabelCurrentFile:TGadget
+
+	Method SetGadgets(ProgBarTotal:TGadget, ProgBarCurrent:TGadget, LabelCurrentFile:TGadget)
+		Self.ProgBarTotal = ProgBarTotal
+		Self.ProgBarCurrent = ProgBarCurrent
+		Self.LabelCurrentFile = LabelCurrentFile
+	End Method
 
 	Method InitProgressBars()
-		Local Gadget1:TGadget, GadgetArray1$[] = ["ProgBarTotal"] 
-		If GadgetList Gadget1:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray1,TProgressBarUpdater.GadgetList:TList)
-		UpdateProgBar(Gadget1, 0.0)
-
-		Local Gadget2:TGadget, GadgetArray2$[] = ["ProgBarCurrent"] 
-		If GadgetList Gadget2:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray2,TProgressBarUpdater.GadgetList:TList)
-		UpdateProgBar(Gadget2, 0.0)
-
-		Local Gadget3:TGadget, GadgetArray3$[] = ["LabelCurrentFile"] 
-		If GadgetList Gadget3:TGadget = GadgetCommander(SetText,GadgetArray3,TProgressBarUpdater.GadgetList:TList, "" )
+		UpdateProgBar(Self.ProgBarTotal, 0.0)
+		UpdateProgBar(Self.ProgBarCurrent, 0.0)
+		SetGadgetText(Self.LabelCurrentFile, "")
 	End Method
 
 	Method SendMessage:Object(message:Object, context:Object)
@@ -48,14 +49,11 @@ Type TProgressBarUpdater
 				Self.totalSize = container.BytesUsed()
 				Self.fileCount = 0
 				Self.totalFileCount = container.ObjectCount()
-			Case "Processing"
-				Local Gadget2:TGadget, GadgetArray2$[] = ["ProgBarCurrent"] 
-				If GadgetList Gadget2:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray2,TProgressBarUpdater.GadgetList:TList)
-				UpdateProgBar(Gadget2, 0.0)
 
-				Local Gadget4:TGadget, GadgetArray4$[] = ["LabelCurrentFile"] 
-				If GadgetList Gadget4:TGadget = GadgetCommander(SetText,GadgetArray4,TProgressBarUpdater.GadgetList:TList, TFile(context).FullName() )
-				
+			Case "Processing"
+				UpdateProgBar(Self.ProgBarCurrent, 0.0)
+				SetGadgetText(Self.LabelCurrentFile, TFile(context).FullName())
+
 			Case "Processed"
 				Local cloudFile:TRackspaceCloudFileObject = TRackspaceCloudFileObject(context)
 				Self.dataProcessed :+ cloudFile.Size()
@@ -63,9 +61,7 @@ Type TProgressBarUpdater
 
 			Case "Skipping"
 				Local file:TFile= TFile(context)
-
-				Local Gadget3:TGadget, GadgetArray3$[] = ["LabelCurrentFile"] 
-				If GadgetList Gadget3:TGadget = GadgetCommander(SetText,GadgetArray3,TProgressBarUpdater.GadgetList:TList, file.FullName() )
+				SetGadgetText(Self.LabelCurrentFile, file.FullName())
 
 				Self.currentFileSize = file.size
 				Self.currentFileTotalSize = file.size
@@ -84,13 +80,9 @@ Type TProgressBarUpdater
 	End Method
 
 	Method UpdateProgressBars()
-		Local Gadget1:TGadget, GadgetArray1$[] = ["ProgBarTotal"] 
-		If GadgetList Gadget1:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray1,GadgetList:TList)
-		If Self.totalFileCount> 0 Then UpdateProgBar(Gadget1, Double(Double(Self.fileCount) / Double(Self.totalFileCount)))
+		If Self.totalFileCount> 0 Then UpdateProgBar(Self.ProgBarTotal, Double(Double(Self.fileCount) / Double(Self.totalFileCount)))
 
-		Local Gadget5:TGadget, GadgetArray5$[] = ["ProgBarCurrent"] 
-		If GadgetList Gadget5:TGadget = GadgetCommander(GetGadgetHandle,GadgetArray5,GadgetList:TList)
-		If Self.currentFileTotalSize > 0 Then UpdateProgBar(Gadget5, Double(Double(Self.currentFileSize) / Double(Self.currentFileTotalSize)))		
+		If Self.currentFileTotalSize > 0 Then UpdateProgBar(Self.ProgBarCurrent, Double(Double(Self.currentFileSize) / Double(Self.currentFileTotalSize)))		
 
 	End Method
 

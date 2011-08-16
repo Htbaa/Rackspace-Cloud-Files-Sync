@@ -30,7 +30,7 @@
     <Colors_Counter>0</Colors_Counter>
     <ProxyScrollPanel_Counter>0</ProxyScrollPanel_Counter>
     <Image_Counter>0</Image_Counter>
-    <Use_GadgetCommander>1</Use_GadgetCommander>
+    <Use_GadgetCommander>0</Use_GadgetCommander>
     <Parser>
       <LastParseText/>
     </Parser>
@@ -339,7 +339,7 @@
     <PixMap_Path/>
     <WindowParent>Null</WindowParent>
     <Use_TextInsideType>1</Use_TextInsideType>
-    <InsideType_TEXT>Method Init()&#10;&#9;&apos;Start of external GadgetIni File&#10;&#9;&apos;Your additional code should be here!&#10;&#10;&#9;Local Gadget1:TGadget, GadgetArray1$[] =[&quot;Window&quot;] &#10;&#9;If GadgetList Gadget1:TGadget =GadgetCommander(SetText,GadgetArray1,GadgetList:TList,AppTitle )&#10;&#9;&#10;&#10;&#9;TProgressBarUpdater.GadgetList =GadgetList&#10;&#9;Local progressUpdater:TProgressBarUpdater =New TProgressBarUpdater&#10;&#9;TBackup.SetMsgReceiver(progressUpdater)&#10;&#10;&#9;TBackup.rcf.SetProgressCallback(TProgressBarUpdater.progressFunction, progressUpdater)&#10;&#10;&#9;&apos;Show setup screen first if there&apos;s no configuration set&#10;&#9;If TApp.rcfUsername.Length =0 Or TApp.rcfKey.Length =0&#10;&#9;&#9;Local Gadget1:TGadget, GadgetArray1$[] =[&quot;SetupWindow&quot;] &#10;&#9;&#9;If GadgetList Gadget1:TGadget =GadgetCommander(Show,GadgetArray1,GadgetList:TList)&#10;&#9;&#9;Local win:TSetupWindow =New TSetupWindow&#10;&#9;&#9;win.CreateForm()&#10;&#9;&#9;win.Init()&#10;&#9;&#9;win.ShowForm()&#10;&#9;Else&#10;&#9;&#9;Self.ShowForm()&#10;&#9;&#9;TApp.SetupRCF()&#10;&#9;End If&#10;&#10;&#10;&#9;&apos;End Of external GadgetIni File&#10;End Method</InsideType_TEXT>
+    <InsideType_TEXT>Method Init()&#10;&#9;&apos;Start of external GadgetIni File&#10;&#9;&apos;Your additional code should be here!&#10;&#10;&#9;SetGadgetText(Self.Window, AppTitle)&#10;&#10;&#9;Local progressUpdater:TProgressBarUpdater =New TProgressBarUpdater&#10;&#9;progressUpdater.SetGadgets(Self.ProgBarTotal, Self.ProgBarCurrent, Self.LabelCurrentFile)&#10;&#9;TBackup.SetMsgReceiver(progressUpdater)&#10;&#10;&#9;TBackup.rcf.SetProgressCallback(TProgressBarUpdater.progressFunction, progressUpdater)&#10;&#10;&#9;&apos;Show setup screen first if there&apos;s no configuration set&#10;&#9;If TApp.rcfUsername.Length =0 Or TApp.rcfKey.Length =0&#10;&#9;&#9;Local win:TSetupWindow =New TSetupWindow&#10;&#9;&#9;win.CreateForm()&#10;&#9;&#9;win.Init()&#10;&#9;&#9;win.ShowForm()&#10;&#9;Else&#10;&#9;&#9;Self.ShowForm()&#10;&#9;&#9;TApp.SetupRCF()&#10;&#9;End If&#10;&#10;&#10;&#9;&apos;End Of external GadgetIni File&#10;End Method</InsideType_TEXT>
     <Use_TextInsideOnEventMethod>0</Use_TextInsideOnEventMethod>
     <InsideOnEvent_TEXT/>
     <WindowGroup/>
@@ -645,7 +645,7 @@
     <PixMap_Path/>
     <WindowParent>Null</WindowParent>
     <Use_TextInsideType>1</Use_TextInsideType>
-    <InsideType_TEXT>Method Init()&#10;&#10;&#9;Local Gadget1:TGadget, GadgetArray1$[] =[&quot;GroupCustomName&quot;] &#10;&#9;If GadgetList Gadget1:TGadget =GadgetCommander(Show,GadgetArray1,GadgetList:TList)&#10;&#10;&#10;&#9;Local containers:TList =TBackup.rcf.Containers()&#10;&#9;Local Gadget8:TGadget, GadgetArray8$[] =[&quot;ListBoxContainers&quot;] &#10;&#9;If GadgetList Gadget8:TGadget =GadgetCommander(GetGadgetHandle,GadgetArray8,GadgetList:TList)&#10;&#9;ClearGadgetItems(Gadget8)&#10;&#10;&#9;For Local container:TRackspaceCloudFilesContainer =EachIn containers&#10;&#9;&#9;AddGadgetItem(Gadget8, container.Name())&#10;&#9;Next&#10;&#10;&#9;Local Gadget4:TGadget, GadgetArray4$[] =[&quot;ContainerSelectionWindow&quot;] &#10;&#9;If GadgetList Gadget4:TGadget =GadgetCommander(Show,GadgetArray4,GadgetList:TList)&#10;&#10;End Method</InsideType_TEXT>
+    <InsideType_TEXT>Method Init()&#10;&#9;ShowGadget(Self.GroupCustomName)&#10;&#10;&#9;Local containers:TList =TBackup.rcf.Containers()&#10;&#9;ClearGadgetItems(Self.ListBoxContainers)&#10;&#10;&#9;For Local container:TRackspaceCloudFilesContainer =EachIn containers&#10;&#9;&#9;AddGadgetItem(Self.ListBoxContainers, container.Name())&#10;&#9;Next&#10;&#10;&#9;ShowGadget(Self.ContainerSelectionWindow)&#10;End Method</InsideType_TEXT>
     <Use_TextInsideOnEventMethod>0</Use_TextInsideOnEventMethod>
     <InsideOnEvent_TEXT/>
     <WindowGroup/>
@@ -956,7 +956,7 @@
     <Filter>7</Filter>
     <FilterRange/>
     <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
-    <EVENT_GADGETACTION_TEXT>Local Gadget14:TGadget, GadgetArray14$[] =[&quot;ListBoxContainers&quot;] &#10;If GadgetList Gadget14:TGadget =GadgetCommander(GetGadgetHandle,GadgetArray14,GadgetList:TList)&#10;&#10;If SelectedGadgetItem(Gadget14) &lt;&gt; -1&#10;&#9;DeselectGadgetItem(Gadget14, SelectedGadgetItem(Gadget14))&#10;End If</EVENT_GADGETACTION_TEXT>
+    <EVENT_GADGETACTION_TEXT>If SelectedGadgetItem(Self.ListBoxContainers) &lt;&gt; -1&#10;&#9;DeselectGadgetItem(Self.ListBoxContainers, SelectedGadgetItem(Self.ListBoxContainers))&#10;End If</EVENT_GADGETACTION_TEXT>
     <EVENT_GADGETLOSTFOCUS>0</EVENT_GADGETLOSTFOCUS>
     <EVENT_GADGETLOSTFOCUS_TEXT/>
   </Item10>
@@ -1013,7 +1013,7 @@
     <Checked>0</Checked>
     <NoText>0</NoText>
     <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
-    <EVENT_GADGETACTION_TEXT>Local Gadget9:TGadget, GadgetArray9$[] =[&quot;ListBoxContainers&quot;] &#13;&#10;If GadgetList Gadget9:TGadget =GadgetCommander(GetGadgetHandle,GadgetArray9,GadgetList:TList)&#13;&#10;&#13;&#10;Local Gadget2:TGadget, GadgetArray2$[] =[&quot;TextFieldContainer&quot;]&#13;&#10;If GadgetList Gadget2:TGadget =GadgetCommander(GetGadgetHandle,GadgetArray2,GadgetList:TList)&#13;&#10;&#13;&#10;Local SelectedItem:Int =SelectedGadgetItem(Gadget9)&#13;&#10;If SelectedItem =-1 And GadgetText(Gadget2).Length =0&#13;&#10;&#9;Notify(&quot;Please select a container or enter a new containername&quot;)&#13;&#10;Else&#13;&#10;&#9;Local container:String&#13;&#10;&#13;&#10;&#9;If GadgetText(Gadget2).Length &gt; 0&#13;&#10;&#9;&#9;container =GadgetText(Gadget2)&#13;&#10;&#9;Else If SelectedItem &lt;&gt; -1&#13;&#10;&#9;&#9;container =GadgetItemText(Gadget9, SelectedItem)&#13;&#10;&#9;End If&#13;&#10;&#13;&#10;&#13;&#10;&#9;Local action:String&#13;&#10;&#13;&#10;&#9;If TBackup.backupDirectory.Length &gt; 0&#13;&#10;&#9;&#9;action =&quot;backup&quot;&#13;&#10;&#9;Else If TBackup.restoreDirectory.Length &gt; 0&#13;&#10;&#9;&#9;action =&quot;restore&quot;&#13;&#10;&#9;End If&#13;&#10;&#13;&#10;&#9;Self.FreeForm()&#9;&#13;&#10;&#13;&#10;&#9;Select action&#13;&#10;&#9;&#9;Case &quot;backup&quot;&#13;&#10;&#9;&#9;&#9;TBackup.SetBackupContainer(container)&#13;&#10;&#9;&#9;&#9;TBackup.CreateBackup()&#13;&#10;&#9;&#9;Case &quot;restore&quot;&#13;&#10;&#9;&#9;&#9;TBackup.SetRestoreContainer(container)&#13;&#10;&#9;&#9;&#9;TBackup.RestoreBackup()&#13;&#10;&#9;End Select&#13;&#10;&#13;&#10;End If&#13;&#10;</EVENT_GADGETACTION_TEXT>
+    <EVENT_GADGETACTION_TEXT>Local SelectedItem:Int =SelectedGadgetItem(Self.ListBoxContainers)&#10;If SelectedItem =-1 And GadgetText(Self.TextFieldContainer).Length =0&#10;&#9;Notify(&quot;Please select a container or enter a new containername&quot;)&#10;Else&#10;&#9;Local container:String&#10;&#10;&#9;If GadgetText(Self.TextFieldContainer).Length &gt; 0&#10;&#9;&#9;container =GadgetText(Self.TextFieldContainer)&#10;&#9;Else If SelectedItem &lt;&gt; -1&#10;&#9;&#9;container =GadgetItemText(Self.ListBoxContainers, SelectedItem)&#10;&#9;End If&#10;&#10;&#10;&#9;Local action:String&#10;&#10;&#9;If TBackup.backupDirectory.Length &gt; 0&#10;&#9;&#9;action =&quot;backup&quot;&#10;&#9;Else If TBackup.restoreDirectory.Length &gt; 0&#10;&#9;&#9;action =&quot;restore&quot;&#10;&#9;End If&#10;&#10;&#9;Self.FreeForm()&#9;&#10;&#10;&#9;Select action&#10;&#9;&#9;Case &quot;backup&quot;&#10;&#9;&#9;&#9;TBackup.SetBackupContainer(container)&#10;&#9;&#9;&#9;TBackup.CreateBackup()&#10;&#9;&#9;Case &quot;restore&quot;&#10;&#9;&#9;&#9;TBackup.SetRestoreContainer(container)&#10;&#9;&#9;&#9;TBackup.RestoreBackup()&#10;&#9;End Select&#10;&#10;End If&#10;</EVENT_GADGETACTION_TEXT>
     <Use_PixMap>0</Use_PixMap>
     <IncBin_Pixmap>0</IncBin_Pixmap>
     <PixMap_Path/>
@@ -1110,7 +1110,7 @@
     <PixMap_Path/>
     <WindowParent>Null</WindowParent>
     <Use_TextInsideType>1</Use_TextInsideType>
-    <InsideType_TEXT>Method Init()&#10;&#9;Local Gadget4:TGadget, GadgetArray4$[] =[&quot;StoredAccount&quot;] &#10;&#9;If GadgetList Gadget4:TGadget =GadgetCommander(SetText,GadgetArray4,GadgetList:TList, TApp.rcfUsername )&#10;&#10;&#9;Local totalBytesUsed:Long =TBackup.rcf.TotalBytesUsed()&#10;&#9;Local Gadget6:TGadget, GadgetArray6$[] =[&quot;StoredData&quot;] &#10;&#9;If GadgetList Gadget6:TGadget =GadgetCommander(SetText,GadgetArray6,GadgetList:TList, (totalBytesUsed /1024 /1024) + &quot; Mb&quot; )&#10;&#10;&#9;Local containers:TList =TBackup.rcf.Containers()&#10;&#9;Local Gadget7:TGadget, GadgetArray7$[] =[&quot;ContainerCount&quot;] &#10;&#9;If GadgetList Gadget7:TGadget =GadgetCommander(SetText,GadgetArray7,GadgetList:TList, containers.Count())&#10;&#10;&#10;&#9;Local Gadget2:TGadget, GadgetArray2$[] =[&quot;UsageWindow&quot;] &#10;&#9;If GadgetList Gadget2:TGadget =GadgetCommander(Show,GadgetArray2,GadgetList:TList)&#10;End Method</InsideType_TEXT>
+    <InsideType_TEXT>Method Init()&#10;&#9;SetGadgetText(Self.StoredAccount, TApp.rcfUsername)&#10;&#10;&#9;Local totalBytesUsed:Long =TBackup.rcf.TotalBytesUsed()&#10;&#9;SetGadgetText(Self.StoredData, (totalBytesUsed /1024 /1024) + &quot; Mb&quot;)&#10;&#10;&#9;Local containers:TList =TBackup.rcf.Containers()&#10;&#9;SetGadgetText(Self.ContainerCount, containers.Count())&#10;&#10;&#9;ShowGadget(Self.UsageWindow)&#10;End Method</InsideType_TEXT>
     <Use_TextInsideOnEventMethod>0</Use_TextInsideOnEventMethod>
     <InsideOnEvent_TEXT/>
     <WindowGroup/>
@@ -1476,7 +1476,7 @@
     <Checked>0</Checked>
     <NoText>0</NoText>
     <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
-    <EVENT_GADGETACTION_TEXT>Self.FreeForm()&#13;&#10;</EVENT_GADGETACTION_TEXT>
+    <EVENT_GADGETACTION_TEXT>Self.FreeForm()&#10;</EVENT_GADGETACTION_TEXT>
     <Use_PixMap>0</Use_PixMap>
     <IncBin_Pixmap>0</IncBin_Pixmap>
     <PixMap_Path/>
@@ -1724,7 +1724,7 @@
     <PixMap_Path/>
     <WindowParent>Null</WindowParent>
     <Use_TextInsideType>1</Use_TextInsideType>
-    <InsideType_TEXT>Method Init()&#10;&#9;Local Gadget2:TGadget, GadgetArray2$[] =[&quot;TextFieldUsername&quot;] &#10;&#9;If GadgetList Gadget2:TGadget =GadgetCommander(SetText,GadgetArray2,GadgetList:TList, TApp.rcfUsername )&#10;&#9;Local Gadget3:TGadget, GadgetArray3$[] =[&quot;TextFieldAPIKey&quot;] &#10;&#9;If GadgetList Gadget3:TGadget =GadgetCommander(SetText,GadgetArray3,GadgetList:TList, TApp.rcfKey )&#10;&#10;&#10;&#9;Local Gadget1:TGadget, GadgetArray1$[] =[&quot;SetupWindow&quot;] &#10;&#9;If GadgetList Gadget1:TGadget =GadgetCommander(Show,GadgetArray1,GadgetList:TList)&#10;End Method</InsideType_TEXT>
+    <InsideType_TEXT>Method Init()&#10;&#9;SetGadgetText(Self.TextFieldUsername, TApp.rcfUsername)&#10;&#9;SetGadgetText(Self.TextFieldAPIKey, TApp.rcfKey)&#10;&#9;ShowGadget(Self.SetupWindow)&#10;End Method</InsideType_TEXT>
     <Use_TextInsideOnEventMethod>0</Use_TextInsideOnEventMethod>
     <InsideOnEvent_TEXT/>
     <WindowGroup/>
@@ -2087,7 +2087,7 @@
     <Checked>0</Checked>
     <NoText>0</NoText>
     <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
-    <EVENT_GADGETACTION_TEXT>Local Gadget3:TGadget, GadgetArray3$[] =[&quot;TextFieldUsername&quot;] &#13;&#10;If GadgetList Gadget3:TGadget =GadgetCommander(GetGadgetHandle,GadgetArray3,GadgetList:TList)&#13;&#10;&#13;&#10;Local Gadget4:TGadget, GadgetArray4$[] =[&quot;TextFieldAPIKey&quot;] &#13;&#10;If GadgetList Gadget4:TGadget =GadgetCommander(GetGadgetHandle,GadgetArray4,GadgetList:TList)&#13;&#10;&#13;&#10;TApp.SaveConfigFile(GadgetText(Gadget3), GadgetText(Gadget4))&#13;&#10;TApp.SetupRCF()&#13;&#10;&#13;&#10;Self.FreeForm()&#13;&#10;&#13;&#10;&apos;Local Gadget6:TGadget, GadgetArray6$[] =[&quot;Window&quot;] &#13;&#10;&apos;If GadgetList Gadget6:TGadget =GadgetCommander(Show,GadgetArray6,GadgetList:TList)&#13;&#10;</EVENT_GADGETACTION_TEXT>
+    <EVENT_GADGETACTION_TEXT>TApp.SaveConfigFile(GadgetText(Self.TextFieldUsername), GadgetText(Self.TextFieldAPIKey))&#10;TApp.SetupRCF()&#10;&#10;Self.FreeForm()</EVENT_GADGETACTION_TEXT>
     <Use_PixMap>0</Use_PixMap>
     <IncBin_Pixmap>0</IncBin_Pixmap>
     <PixMap_Path/>
