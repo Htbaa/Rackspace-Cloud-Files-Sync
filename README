@@ -6,12 +6,12 @@ This application allows you to backup up your files remotely and if needed at a 
 Currently the code is divided into 2 parts. The base code which takes care of the backing up, restoring, application directory setup etc.
 The other part is the GUI. The GUI uses the base code but all functionality is based in the base code. This will allow for easier creation of other GUI's or commandline programs.
 
-So far all code is being tested on Windows Vista but should work without problems on Windows XP and Linux as well.
+So far all code is being tested on Windows 7 but should work without problems on Windows XP, Vista and Linux as well.
 
 
 REQUIREMENTS
 
 To build the application you need rackspacecloudfiles.mod which you can get from https://github.com/Htbaa/rackspacecloudfiles.mod. You'll also need rest.mod which you can get from https://github.com/Htbaa/rest.mod.
-You also need bah.mod/volumes.mod which is available from http://code.google.com/p/maxmods/
+You also need volumes.mod which is available from http://code.google.com/p/maxmods/
 To build the GUI MaxGUI is required. This module is now free but can be downlaoded from http://www.blitzmax.com or http://sourceforge.net/projects/maxgui/
 Logic Gui 5.1 (http://jsp.logiczone.de/) is used to build the GUI
