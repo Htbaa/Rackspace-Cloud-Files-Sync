@@ -82,7 +82,11 @@ Type TProgressBarUpdater
 	Method UpdateProgressBars()
 		If Self.totalFileCount> 0 Then UpdateProgBar(Self.ProgBarTotal, Double(Double(Self.fileCount) / Double(Self.totalFileCount)))
 
-		If Self.currentFileTotalSize > 0 Then UpdateProgBar(Self.ProgBarCurrent, Double(Double(Self.currentFileSize) / Double(Self.currentFileTotalSize)))		
+		If Self.currentFileTotalSize > 0 Then UpdateProgBar(Self.ProgBarCurrent, Double(Double(Self.currentFileSize) / Double(Self.currentFileTotalSize)))	
+		
+		'Make sure the OS can redraw the GUI
+		'https://github.com/Htbaa/Rackspace-Cloud-Files-Sync/issues/7
+		Driver.Poll
 
 	End Method
 
@@ -98,9 +102,6 @@ Type TProgressBarUpdater
 		End If
 
 		updater.UpdateProgressBars()
-		'Make sure the OS can redraw the GUI
-		'https://github.com/Htbaa/Rackspace-Cloud-Files-Sync/issues/7
-		Driver.Poll
 
 		Return 0
 	End Function
