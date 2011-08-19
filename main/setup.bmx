@@ -8,6 +8,7 @@ Type TApp Final
 	Global rcf:TRackspaceCloudFiles
 	Global rcfUsername:String
 	Global rcfKey:String
+	Global rcfLocation:String = TRackspaceCloudFiles.LOCATION_USA
 
 	Rem
 		bbdoc:
@@ -31,7 +32,7 @@ Type TApp Final
 		
 		'Create a default configuration file
 		If FileType(TApp.configFile) <> FILETYPE_FILE
-			TApp.SaveConfigFile("", "")
+			TApp.SaveConfigFile("", "", TRackspaceCloudFiles.LOCATION_USA)
 		End If
 		
 		TApp.LoadConfigFile()
@@ -46,8 +47,8 @@ Type TApp Final
 	Rem
 		bbdoc:
 	End rem
-	Function SaveConfigFile(username:String, key:String)
-		SaveText(username.Trim() + "~n" + key.Trim(), TApp.configFile)
+	Function SaveConfigFile(username:String, key:String, location:String)
+		SaveText(username.Trim() + "~n" + key.Trim() + "~n" + location.Trim(), TApp.configFile)
 		TApp.LoadConfigFile()
 	End Function
 	
@@ -56,9 +57,10 @@ Type TApp Final
 	End rem
 	Function LoadConfigFile()
 		Local credentials:String[] = LoadText(TApp.configFile).Split("~n")
-		If Not credentials.Length = 2 Then RuntimeError("Invalid configuration file!")
+		If Not credentials.Length >= 2 Then RuntimeError("Invalid configuration file!")
 		TApp.rcfUsername = credentials[0].Trim()
 		TApp.rcfKey = credentials[1].Trim()
+		If credentials.Length >= 3 Then TApp.rcfLocation = credentials[2].Trim()
 	End Function
 
 	Rem
@@ -66,7 +68,7 @@ Type TApp Final
 	End rem
 	Function SetupRCF()
 		Try
-			TApp.rcf.Create(TApp.rcfUsername, TApp.rcfKey)
+			TApp.rcf.Create(TApp.rcfUsername, TApp.rcfKey, TApp.rcfLocation)
 		Catch ex:TRackspaceCloudFilesException
 			Notify(ex.ToString(), True)
 		End Try

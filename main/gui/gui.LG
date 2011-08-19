@@ -6,10 +6,10 @@
     <Push_Button_Counter>3</Push_Button_Counter>
     <TextField_Counter>3</TextField_Counter>
     <Panels_Counter>5</Panels_Counter>
-    <Labels_Counter>15</Labels_Counter>
+    <Labels_Counter>16</Labels_Counter>
     <Slider_Counter>0</Slider_Counter>
-    <Combo_Counter>1</Combo_Counter>
-    <ListBox_Counter>2</ListBox_Counter>
+    <Combo_Counter>3</Combo_Counter>
+    <ListBox_Counter>3</ListBox_Counter>
     <TextArea_Counter>0</TextArea_Counter>
     <HTMLView_Counter>0</HTMLView_Counter>
     <ProgBar_Counter>2</ProgBar_Counter>
@@ -1689,7 +1689,7 @@
     <X>560</X>
     <Y>401</Y>
     <width>323</width>
-    <height>151</height>
+    <height>194</height>
     <Group>MainWindow</Group>
     <SubGroup>0</SubGroup>
     <Group_x>0</Group_x>
@@ -1775,7 +1775,7 @@
     <PixMap_Path/>
     <WindowParent>Null</WindowParent>
     <Use_TextInsideType>1</Use_TextInsideType>
-    <InsideType_TEXT>Method Init()&#10;&#9;SetGadgetText(Self.TextFieldUsername, TApp.rcfUsername)&#10;&#9;SetGadgetText(Self.TextFieldAPIKey, TApp.rcfKey)&#10;&#9;ShowGadget(Self.SetupWindow)&#10;End Method</InsideType_TEXT>
+    <InsideType_TEXT>Method Init()&#10;&#9;SetGadgetText(Self.TextFieldUsername, TApp.rcfUsername)&#10;&#9;SetGadgetText(Self.TextFieldAPIKey, TApp.rcfKey)&#10;&#10;&#9;Local selected:Int[] =[GADGETITEM_NORMAL, GADGETITEM_NORMAL]&#10;&#9;If TApp.rcfLocation =TRackspaceCloudFiles.LOCATION_USA Then selected[0] =GADGETITEM_DEFAULT&#10;&#9;If TApp.rcfLocation =TRackspaceCloudFiles.LOCATION_UK  Then selected[1] =GADGETITEM_DEFAULT&#10;&#10;&#9;AddGadgetItem(Self.ComboLocation, &quot;USA&quot;, selected[0], -1, &quot;Authenticate against the USA server&quot;, TRackspaceCloudFiles.LOCATION_USA)&#10;&#9;AddGadgetItem(Self.ComboLocation, &quot;UK&quot;, selected[1], -1, &quot;Authenticate against the UK server&quot;, TRackspaceCloudFiles.LOCATION_UK)&#10;&#10;&#9;ShowGadget(Self.SetupWindow)&#10;End Method</InsideType_TEXT>
     <Use_TextInsideOnEventMethod>0</Use_TextInsideOnEventMethod>
     <InsideOnEvent_TEXT/>
     <WindowGroup/>
@@ -1787,7 +1787,7 @@
     <X>563</X>
     <Y>421</Y>
     <width>317</width>
-    <height>90</height>
+    <height>116</height>
     <Group>SetupWindow</Group>
     <SubGroup>0</SubGroup>
     <Group_x>563</Group_x>
@@ -1921,9 +1921,60 @@
     <AnchorH>0</AnchorH>
   </Item25>
   <Item26>
+    <Name>LabelLocation</Name>
+    <X>575</X>
+    <Y>505</Y>
+    <width>80</width>
+    <height>14</height>
+    <Group>GroupCredentials</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>567</Group_x>
+    <Group_y>436</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name/>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>21540232</Layer>
+    <Lang_Text en="Location:"/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+  </Item26>
+  <Item27>
     <Name>Label10</Name>
     <X>576</X>
-    <Y>477</Y>
+    <Y>476</Y>
     <width>80</width>
     <height>14</height>
     <Group>GroupCredentials</Group>
@@ -1970,8 +2021,8 @@
     <AnchorY>0</AnchorY>
     <AnchorW>0</AnchorW>
     <AnchorH>0</AnchorH>
-  </Item26>
-  <Item27>
+  </Item27>
+  <Item28>
     <Name>TextFieldAPIKey</Name>
     <X>656</X>
     <Y>473</Y>
@@ -2027,8 +2078,8 @@
     <EVENT_GADGETACTION_TEXT/>
     <EVENT_GADGETLOSTFOCUS>0</EVENT_GADGETLOSTFOCUS>
     <EVENT_GADGETLOSTFOCUS_TEXT/>
-  </Item27>
-  <Item28>
+  </Item28>
+  <Item29>
     <Name>TextFieldUsername</Name>
     <X>656</X>
     <Y>444</Y>
@@ -2084,11 +2135,93 @@
     <EVENT_GADGETACTION_TEXT/>
     <EVENT_GADGETLOSTFOCUS>0</EVENT_GADGETLOSTFOCUS>
     <EVENT_GADGETLOSTFOCUS_TEXT/>
-  </Item28>
-  <Item29>
+  </Item29>
+  <Item30>
+    <Name>ComboLocation</Name>
+    <X>656</X>
+    <Y>502</Y>
+    <width>207</width>
+    <height>23</height>
+    <Group>GroupCredentials</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>567</Group_x>
+    <Group_y>436</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>10</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>6</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name>Arial</Font_Name>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>21540232</Layer>
+    <Lang_Text en=""/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+    <Text/>
+    <Use_Items>0</Use_Items>
+    <Use_Icons>0</Use_Icons>
+    <IncBin_IconStrip>0</IncBin_IconStrip>
+    <Use_Tip>0</Use_Tip>
+    <Use_Extra>0</Use_Extra>
+    <IconStripPath/>
+    <Context/>
+    <GadgetItems>
+      <I1 Icon="-1" Flags="1" Extra="">
+        <Text en=""/>
+        <Tip en="????"/>
+      </I1>
+    </GadgetItems>
+    <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
+    <EVENT_GADGETACTION_TEXT/>
+    <EVENT_GADGETSELECT>1</EVENT_GADGETSELECT>
+    <EVENT_GADGETSELECT_TEXT/>
+    <EVENT_GADGETMENU>0</EVENT_GADGETMENU>
+    <EVENT_GADGETMENU_TEXT/>
+    <EVENT_GADGETOPEN>0</EVENT_GADGETOPEN>
+    <EVENT_GADGETOPEN_TEXT/>
+    <EVENT_GADGETCLOSE>0</EVENT_GADGETCLOSE>
+    <EVENT_GADGETCLOSE_TEXT/>
+    <EVENT_GADGETDRAG>0</EVENT_GADGETDRAG>
+    <EVENT_GADGETDRAG_TEXT/>
+    <EVENT_GADGETDROP>0</EVENT_GADGETDROP>
+    <EVENT_GADGETDROP_TEXT/>
+    <Use_Menu>0</Use_Menu>
+    <MenuName/>
+    <Use_VistaTheme>0</Use_VistaTheme>
+  </Item30>
+  <Item31>
     <Name>Ok3</Name>
     <X>680</X>
-    <Y>521</Y>
+    <Y>561</Y>
     <width>75</width>
     <height>23</height>
     <Group>SetupWindow</Group>
@@ -2138,12 +2271,12 @@
     <Checked>0</Checked>
     <NoText>0</NoText>
     <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
-    <EVENT_GADGETACTION_TEXT>TApp.SaveConfigFile(GadgetText(Self.TextFieldUsername), GadgetText(Self.TextFieldAPIKey))&#10;TApp.SetupRCF()&#10;&#10;Self.FreeForm()</EVENT_GADGETACTION_TEXT>
+    <EVENT_GADGETACTION_TEXT>Local location:String =String(GadgetItemExtra(Self.ComboLocation, SelectedGadgetItem(Self.ComboLocation)))&#13;&#10;TApp.SaveConfigFile(GadgetText(Self.TextFieldUsername), GadgetText(Self.TextFieldAPIKey), location)&#13;&#10;TApp.SetupRCF()&#13;&#10;&#13;&#10;Self.FreeForm()</EVENT_GADGETACTION_TEXT>
     <Use_PixMap>0</Use_PixMap>
     <IncBin_Pixmap>0</IncBin_Pixmap>
     <PixMap_Path/>
     <PixMapProperties>0</PixMapProperties>
-  </Item29>
+  </Item31>
   <Menu IncBin_Media="0">
     <Menu_0>
       App
