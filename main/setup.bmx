@@ -9,6 +9,7 @@ Type TApp Final
 	Global rcfUsername:String
 	Global rcfKey:String
 	Global rcfLocation:String = TRackspaceCloudFiles.LOCATION_USA
+	Global skipMD5Check:Byte = 0
 
 	Rem
 		bbdoc:
@@ -32,10 +33,12 @@ Type TApp Final
 		
 		'Create a default configuration file
 		If FileType(TApp.configFile) <> FILETYPE_FILE
-			TApp.SaveConfigFile("", "", TRackspaceCloudFiles.LOCATION_USA)
+			TApp.SaveConfigFile("", "", TRackspaceCloudFiles.LOCATION_USA, 0)
 		End If
 		
 		TApp.LoadConfigFile()
+		
+		TBackup.SetSkipMD5Check(TApp.skipMD5Check)
 			
 		'Load our certificates
 		If FileType("ssl/cacert.pem") = FILETYPE_DIR Then TRackspaceCloudFiles.CAInfo = "ssl/cacert.pem"
@@ -47,8 +50,8 @@ Type TApp Final
 	Rem
 		bbdoc:
 	End rem
-	Function SaveConfigFile(username:String, key:String, location:String)
-		SaveText(username.Trim() + "~n" + key.Trim() + "~n" + location.Trim(), TApp.configFile)
+	Function SaveConfigFile(username:String, key:String, location:String, skipMD5Check:String)
+		SaveText(username.Trim() + "~n" + key.Trim() + "~n" + location.Trim() + "~n" + skipMD5Check.Trim(), TApp.configFile)
 		TApp.LoadConfigFile()
 	End Function
 	
@@ -61,6 +64,7 @@ Type TApp Final
 		TApp.rcfUsername = credentials[0].Trim()
 		TApp.rcfKey = credentials[1].Trim()
 		If credentials.Length >= 3 Then TApp.rcfLocation = credentials[2].Trim()
+		If credentials.Length >= 4 Then TApp.skipMD5Check = credentials[3].ToInt()
 	End Function
 
 	Rem

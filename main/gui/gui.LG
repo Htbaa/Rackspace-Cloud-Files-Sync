@@ -3,10 +3,10 @@
   <Preferences>
     <Creator>Logic Gui</Creator>
     <Version>5.1 Build 422</Version>
-    <Push_Button_Counter>3</Push_Button_Counter>
+    <Push_Button_Counter>5</Push_Button_Counter>
     <TextField_Counter>3</TextField_Counter>
-    <Panels_Counter>5</Panels_Counter>
-    <Labels_Counter>16</Labels_Counter>
+    <Panels_Counter>7</Panels_Counter>
+    <Labels_Counter>18</Labels_Counter>
     <Slider_Counter>0</Slider_Counter>
     <Combo_Counter>3</Combo_Counter>
     <ListBox_Counter>3</ListBox_Counter>
@@ -1686,10 +1686,10 @@
   </Item22>
   <Item23>
     <Name>SetupWindow</Name>
-    <X>560</X>
-    <Y>401</Y>
+    <X>558</X>
+    <Y>326</Y>
     <width>323</width>
-    <height>194</height>
+    <height>270</height>
     <Group>MainWindow</Group>
     <SubGroup>0</SubGroup>
     <Group_x>0</Group_x>
@@ -1775,7 +1775,7 @@
     <PixMap_Path/>
     <WindowParent>Null</WindowParent>
     <Use_TextInsideType>1</Use_TextInsideType>
-    <InsideType_TEXT>Method Init()&#10;&#9;SetGadgetText(Self.TextFieldUsername, TApp.rcfUsername)&#10;&#9;SetGadgetText(Self.TextFieldAPIKey, TApp.rcfKey)&#10;&#10;&#9;Local selected:Int[] =[GADGETITEM_NORMAL, GADGETITEM_NORMAL]&#10;&#9;If TApp.rcfLocation =TRackspaceCloudFiles.LOCATION_USA Then selected[0] =GADGETITEM_DEFAULT&#10;&#9;If TApp.rcfLocation =TRackspaceCloudFiles.LOCATION_UK  Then selected[1] =GADGETITEM_DEFAULT&#10;&#10;&#9;AddGadgetItem(Self.ComboLocation, &quot;USA&quot;, selected[0], -1, &quot;Authenticate against the USA server&quot;, TRackspaceCloudFiles.LOCATION_USA)&#10;&#9;AddGadgetItem(Self.ComboLocation, &quot;UK&quot;, selected[1], -1, &quot;Authenticate against the UK server&quot;, TRackspaceCloudFiles.LOCATION_UK)&#10;&#10;&#9;ShowGadget(Self.SetupWindow)&#10;End Method</InsideType_TEXT>
+    <InsideType_TEXT>Method Init()&#10;&#9;SetGadgetText(Self.TextFieldUsername, TApp.rcfUsername)&#10;&#9;SetGadgetText(Self.TextFieldAPIKey, TApp.rcfKey)&#10;&#10;&#9;Local selected:Int[] =[GADGETITEM_NORMAL, GADGETITEM_NORMAL]&#10;&#9;If TApp.rcfLocation =TRackspaceCloudFiles.LOCATION_USA Then selected[0] =GADGETITEM_DEFAULT&#10;&#9;If TApp.rcfLocation =TRackspaceCloudFiles.LOCATION_UK  Then selected[1] =GADGETITEM_DEFAULT&#10;&#10;&#9;AddGadgetItem(Self.ComboLocation, &quot;USA&quot;, selected[0], -1, &quot;Authenticate against the USA server&quot;, TRackspaceCloudFiles.LOCATION_USA)&#10;&#9;AddGadgetItem(Self.ComboLocation, &quot;UK&quot;, selected[1], -1, &quot;Authenticate against the UK server&quot;, TRackspaceCloudFiles.LOCATION_UK)&#10;&#10;&#9;SetButtonState(Self.CheckboxChecksumCheck, Not TApp.skipMD5Check)&#10;&#10;&#9;ShowGadget(Self.SetupWindow)&#10;End Method</InsideType_TEXT>
     <Use_TextInsideOnEventMethod>0</Use_TextInsideOnEventMethod>
     <InsideOnEvent_TEXT/>
     <WindowGroup/>
@@ -1783,15 +1783,102 @@
     <Use_AppEvents>0</Use_AppEvents>
   </Item23>
   <Item24>
+    <Name>GroupGeneralSettings</Name>
+    <X>561</X>
+    <Y>466</Y>
+    <width>317</width>
+    <height>89</height>
+    <Group>SetupWindow</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>561</Group_x>
+    <Group_y>346</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>10</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>3</TypToCreate>
+    <StyleToCreate>8</StyleToCreate>
+    <Font_Name/>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>21540232</Layer>
+    <Lang_Text en="General Settings"/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+    <EVENT_MOUSEDOWN>0</EVENT_MOUSEDOWN>
+    <EVENT_MOUSEDOWN_TEXT/>
+    <EVENT_MOUSEUP>0</EVENT_MOUSEUP>
+    <EVENT_MOUSEUP_TEXT/>
+    <EVENT_MOUSEMOVE>0</EVENT_MOUSEMOVE>
+    <EVENT_MOUSEMOVE_TEXT/>
+    <EVENT_MOUSEENTER>0</EVENT_MOUSEENTER>
+    <EVENT_MOUSEENTER_TEXT/>
+    <EVENT_MOUSELEAVE>0</EVENT_MOUSELEAVE>
+    <EVENT_MOUSELEAVE_TEXT/>
+    <EVENT_MOUSEWHEEL>0</EVENT_MOUSEWHEEL>
+    <EVENT_MOUSEWHEEL_TEXT/>
+    <EVENT_KEYDOWN>0</EVENT_KEYDOWN>
+    <EVENT_KEYDOWN_TEXT/>
+    <EVENT_KEYUP>0</EVENT_KEYUP>
+    <EVENT_KEYUP_TEXT/>
+    <EVENT_KEYCHAR>0</EVENT_KEYCHAR>
+    <EVENT_KEYCHAR_TEXT/>
+    <EVENT_KEYREPEAT>0</EVENT_KEYREPEAT>
+    <EVENT_KEYREPEAT_TEXT/>
+    <Use_PixMap>0</Use_PixMap>
+    <IncBin_Pixmap>0</IncBin_Pixmap>
+    <PixMap_Path/>
+    <PixMapProperties>0</PixMapProperties>
+    <Use_Menu>0</Use_Menu>
+    <MenuName/>
+    <Use_Toolbar>0</Use_Toolbar>
+    <IncBin_Toolbar>0</IncBin_Toolbar>
+    <ToolbarHeight>0</ToolbarHeight>
+    <ToolbarWidth>0</ToolbarWidth>
+    <ToolbarPath/>
+    <Use_Toolbar_Event>0</Use_Toolbar_Event>
+    <Use_Toolbar_Tip>0</Use_Toolbar_Tip>
+    <Use_Toolbar_Extra>0</Use_Toolbar_Extra>
+    <ToolbarType>0</ToolbarType>
+    <ToolbarItems/>
+  </Item24>
+  <Item25>
     <Name>GroupCredentials</Name>
-    <X>563</X>
-    <Y>421</Y>
+    <X>561</X>
+    <Y>346</Y>
     <width>317</width>
     <height>116</height>
     <Group>SetupWindow</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>563</Group_x>
-    <Group_y>421</Group_y>
+    <Group_x>561</Group_x>
+    <Group_y>346</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -1868,17 +1955,17 @@
     <Use_Toolbar_Extra>0</Use_Toolbar_Extra>
     <ToolbarType>0</ToolbarType>
     <ToolbarItems/>
-  </Item24>
-  <Item25>
+  </Item25>
+  <Item26>
     <Name>Label9</Name>
-    <X>576</X>
-    <Y>448</Y>
+    <X>574</X>
+    <Y>373</Y>
     <width>80</width>
     <height>14</height>
     <Group>GroupCredentials</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>567</Group_x>
-    <Group_y>436</Group_y>
+    <Group_x>565</Group_x>
+    <Group_y>361</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -1919,17 +2006,17 @@
     <AnchorY>0</AnchorY>
     <AnchorW>0</AnchorW>
     <AnchorH>0</AnchorH>
-  </Item25>
-  <Item26>
+  </Item26>
+  <Item27>
     <Name>LabelLocation</Name>
-    <X>575</X>
-    <Y>505</Y>
+    <X>573</X>
+    <Y>430</Y>
     <width>80</width>
     <height>14</height>
     <Group>GroupCredentials</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>567</Group_x>
-    <Group_y>436</Group_y>
+    <Group_x>565</Group_x>
+    <Group_y>361</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -1970,17 +2057,17 @@
     <AnchorY>0</AnchorY>
     <AnchorW>0</AnchorW>
     <AnchorH>0</AnchorH>
-  </Item26>
-  <Item27>
+  </Item27>
+  <Item28>
     <Name>Label10</Name>
-    <X>576</X>
-    <Y>476</Y>
+    <X>574</X>
+    <Y>401</Y>
     <width>80</width>
     <height>14</height>
     <Group>GroupCredentials</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>567</Group_x>
-    <Group_y>436</Group_y>
+    <Group_x>565</Group_x>
+    <Group_y>361</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -2021,74 +2108,17 @@
     <AnchorY>0</AnchorY>
     <AnchorW>0</AnchorW>
     <AnchorH>0</AnchorH>
-  </Item27>
-  <Item28>
-    <Name>TextFieldAPIKey</Name>
-    <X>656</X>
-    <Y>473</Y>
-    <width>207</width>
-    <height>18</height>
-    <Group>GroupCredentials</Group>
-    <SubGroup>0</SubGroup>
-    <Group_x>567</Group_x>
-    <Group_y>436</Group_y>
-    <CreateCallBack/>
-    <Foreground Red="0" Green="0" Blue="0"/>
-    <Background Red="255" Green="255" Blue="255"/>
-    <Color_Changed>0</Color_Changed>
-    <BColor_Changed>0</BColor_Changed>
-    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
-    <Comment/>
-    <is_disabled>0</is_disabled>
-    <is_hidden>0</is_hidden>
-    <Position_is_locked>0</Position_is_locked>
-    <Size_is_locked>0</Size_is_locked>
-    <Marked>0</Marked>
-    <Design_Range>10</Design_Range>
-    <Virtual_Group>0</Virtual_Group>
-    <Vx>0</Vx>
-    <Vy>0</Vy>
-    <Vw>0</Vw>
-    <Vh>0</Vh>
-    <TypToCreate>2</TypToCreate>
-    <StyleToCreate>0</StyleToCreate>
-    <Font_Name/>
-    <Font_Size>0</Font_Size>
-    <Font_Style>0</Font_Style>
-    <Use_Font>0</Use_Font>
-    <Modifier/>
-    <HotKey/>
-    <Layer>21540232</Layer>
-    <Lang_Text en=""/>
-    <VariableType>2</VariableType>
-    <Tooltip en="????"/>
-    <Use_Tooltip>0</Use_Tooltip>
-    <Alpha>0.000000000</Alpha>
-    <Use_Alpha>0</Use_Alpha>
-    <Sensitivity>0</Sensitivity>
-    <Anchor>0</Anchor>
-    <AnchorParent/>
-    <AnchorX>0</AnchorX>
-    <AnchorY>0</AnchorY>
-    <AnchorW>0</AnchorW>
-    <AnchorH>0</AnchorH>
-    <Filter>0</Filter>
-    <FilterRange/>
-    <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
-    <EVENT_GADGETACTION_TEXT/>
-    <EVENT_GADGETLOSTFOCUS>0</EVENT_GADGETLOSTFOCUS>
-    <EVENT_GADGETLOSTFOCUS_TEXT/>
   </Item28>
   <Item29>
-    <Name>TextFieldUsername</Name>
-    <X>656</X>
-    <Y>444</Y>
+    <Name>TextFieldAPIKey</Name>
+    <X>654</X>
+    <Y>398</Y>
     <width>207</width>
     <height>18</height>
     <Group>GroupCredentials</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>567</Group_x>
-    <Group_y>436</Group_y>
+    <Group_x>565</Group_x>
+    <Group_y>361</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -2137,15 +2167,72 @@
     <EVENT_GADGETLOSTFOCUS_TEXT/>
   </Item29>
   <Item30>
+    <Name>TextFieldUsername</Name>
+    <X>654</X>
+    <Y>369</Y>
+    <width>207</width>
+    <height>18</height>
+    <Group>GroupCredentials</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>565</Group_x>
+    <Group_y>361</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>10</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>2</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name/>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>21540232</Layer>
+    <Lang_Text en=""/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+    <Filter>0</Filter>
+    <FilterRange/>
+    <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
+    <EVENT_GADGETACTION_TEXT/>
+    <EVENT_GADGETLOSTFOCUS>0</EVENT_GADGETLOSTFOCUS>
+    <EVENT_GADGETLOSTFOCUS_TEXT/>
+  </Item30>
+  <Item31>
     <Name>ComboLocation</Name>
-    <X>656</X>
-    <Y>502</Y>
+    <X>654</X>
+    <Y>427</Y>
     <width>207</width>
     <height>23</height>
     <Group>GroupCredentials</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>567</Group_x>
-    <Group_y>436</Group_y>
+    <Group_x>565</Group_x>
+    <Group_y>361</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -2217,17 +2304,17 @@
     <Use_Menu>0</Use_Menu>
     <MenuName/>
     <Use_VistaTheme>0</Use_VistaTheme>
-  </Item30>
-  <Item31>
+  </Item31>
+  <Item32>
     <Name>Ok3</Name>
-    <X>680</X>
-    <Y>561</Y>
+    <X>678</X>
+    <Y>566</Y>
     <width>75</width>
     <height>23</height>
     <Group>SetupWindow</Group>
     <SubGroup>0</SubGroup>
-    <Group_x>563</Group_x>
-    <Group_y>421</Group_y>
+    <Group_x>561</Group_x>
+    <Group_y>346</Group_y>
     <CreateCallBack/>
     <Foreground Red="0" Green="0" Blue="0"/>
     <Background Red="255" Green="255" Blue="255"/>
@@ -2271,12 +2358,173 @@
     <Checked>0</Checked>
     <NoText>0</NoText>
     <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
-    <EVENT_GADGETACTION_TEXT>Local location:String =String(GadgetItemExtra(Self.ComboLocation, SelectedGadgetItem(Self.ComboLocation)))&#13;&#10;TApp.SaveConfigFile(GadgetText(Self.TextFieldUsername), GadgetText(Self.TextFieldAPIKey), location)&#13;&#10;TApp.SetupRCF()&#13;&#10;&#13;&#10;Self.FreeForm()</EVENT_GADGETACTION_TEXT>
+    <EVENT_GADGETACTION_TEXT>Local location:String =String(GadgetItemExtra(Self.ComboLocation, SelectedGadgetItem(Self.ComboLocation)))&#10;Local skipMD5Check:Byte =Not ButtonState(Self.CheckboxChecksumCheck)&#10;TApp.SaveConfigFile(GadgetText(Self.TextFieldUsername), GadgetText(Self.TextFieldAPIKey), location, skipMD5Check)&#10;TApp.SetupRCF()&#10;&#10;Self.FreeForm()</EVENT_GADGETACTION_TEXT>
     <Use_PixMap>0</Use_PixMap>
     <IncBin_Pixmap>0</IncBin_Pixmap>
     <PixMap_Path/>
     <PixMapProperties>0</PixMapProperties>
-  </Item31>
+  </Item32>
+  <Item33>
+    <Name>CheckboxChecksumCheck</Name>
+    <X>677</X>
+    <Y>489</Y>
+    <width>75</width>
+    <height>23</height>
+    <Group>GroupGeneralSettings</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>565</Group_x>
+    <Group_y>481</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>1</TypToCreate>
+    <StyleToCreate>2</StyleToCreate>
+    <Font_Name/>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>21540232</Layer>
+    <Lang_Text en="yes"/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+    <Checked>0</Checked>
+    <NoText>0</NoText>
+    <EVENT_GADGETACTION>1</EVENT_GADGETACTION>
+    <EVENT_GADGETACTION_TEXT/>
+    <Use_PixMap>0</Use_PixMap>
+    <IncBin_Pixmap>0</IncBin_Pixmap>
+    <PixMap_Path/>
+    <PixMapProperties>0</PixMapProperties>
+  </Item33>
+  <Item34>
+    <Name>LabelSkipMD5Check</Name>
+    <X>573</X>
+    <Y>493</Y>
+    <width>120</width>
+    <height>14</height>
+    <Group>GroupGeneralSettings</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>565</Group_x>
+    <Group_y>481</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name/>
+    <Font_Size>0</Font_Size>
+    <Font_Style>0</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>21540232</Layer>
+    <Lang_Text en="Checksum check:"/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+  </Item34>
+  <Item35>
+    <Name>LabelChecksumInfo</Name>
+    <X>575</X>
+    <Y>515</Y>
+    <width>291</width>
+    <height>32</height>
+    <Group>GroupGeneralSettings</Group>
+    <SubGroup>0</SubGroup>
+    <Group_x>565</Group_x>
+    <Group_y>481</Group_y>
+    <CreateCallBack/>
+    <Foreground Red="0" Green="0" Blue="0"/>
+    <Background Red="255" Green="255" Blue="255"/>
+    <Color_Changed>0</Color_Changed>
+    <BColor_Changed>0</BColor_Changed>
+    <Layout Left="0" Right="0" Top="0" Bottom="0"/>
+    <Comment/>
+    <is_disabled>0</is_disabled>
+    <is_hidden>0</is_hidden>
+    <Position_is_locked>0</Position_is_locked>
+    <Size_is_locked>0</Size_is_locked>
+    <Marked>0</Marked>
+    <Design_Range>5</Design_Range>
+    <Virtual_Group>0</Virtual_Group>
+    <Vx>0</Vx>
+    <Vy>0</Vy>
+    <Vw>0</Vw>
+    <Vh>0</Vh>
+    <TypToCreate>4</TypToCreate>
+    <StyleToCreate>0</StyleToCreate>
+    <Font_Name>Arial</Font_Name>
+    <Font_Size>0</Font_Size>
+    <Font_Style>2</Font_Style>
+    <Use_Font>0</Use_Font>
+    <Modifier/>
+    <HotKey/>
+    <Layer>21540232</Layer>
+    <Lang_Text en="(this makes sure local and remote files are equal, but processing takes longer)"/>
+    <VariableType>2</VariableType>
+    <Tooltip en="????"/>
+    <Use_Tooltip>0</Use_Tooltip>
+    <Alpha>0.000000000</Alpha>
+    <Use_Alpha>0</Use_Alpha>
+    <Sensitivity>0</Sensitivity>
+    <Anchor>0</Anchor>
+    <AnchorParent/>
+    <AnchorX>0</AnchorX>
+    <AnchorY>0</AnchorY>
+    <AnchorW>0</AnchorW>
+    <AnchorH>0</AnchorH>
+  </Item35>
   <Menu IncBin_Media="0">
     <Menu_0>
       App

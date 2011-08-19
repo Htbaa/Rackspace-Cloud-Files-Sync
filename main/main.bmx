@@ -16,6 +16,9 @@ Type TBackup
 	Global restoreDirectory:String
 	Global restoreContainer:String
 	
+	'Global settings
+	Global skipMD5Check:Byte = False
+	
 	Rem
 		bbdoc:
 	End Rem	
@@ -56,6 +59,13 @@ Type TBackup
 	End Rem
 	Function SetRestoreContainer(restoreContainer:String)
 		TBackup.restoreContainer = restoreContainer
+	End Function
+	
+	Rem
+		bbdoc:
+	End Rem
+	Function SetSkipMD5Check(skip:Byte)
+		TBackup.skipMD5Check = skip
 	End Function
 		
 	Rem
@@ -131,14 +141,16 @@ Type TBackup
 			For Local fileObject:TRackspaceCloudFileObject = EachIn objectList
 				'Check if names match
 				If fileObject.Name() = stripped
-					'If so fetch HEAD data
-					fileObject.Head()
-					
-					'If the ETag doesn't match than the file is different. So remove it
-					If fileObject.ETag() <> file.ETag()
-						If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Removing", fileObject)
-						fileObject.Remove()
-						Exit
+					If Not TBackup.skipMD5Check
+						'If so fetch HEAD data
+						fileObject.Head()
+						
+						'If the ETag doesn't match than the file is different. So remove it
+						If fileObject.ETag() <> file.ETag()
+							If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Removing", fileObject)
+							fileObject.Remove()
+							Exit
+						End If
 					End If
 					
 					'ETag's matched so there's no reason to not skip this one
@@ -218,14 +230,19 @@ Type TBackup
 			
 			'Check if file exists
 			If FileType(localFile) = FILETYPE_FILE
-				'Retrieve meta data
-				fileObject.Head()
-				'ETag mismatch - Delete local file
-				If fileObject.ETag() <> file.ETag()
-					If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Removing", localFile)
-					DeleteFile(localFile)
-				'ETag matches, the file will be left untouched and won't be downloaded
-				Else
+				Local skip:Byte = True
+				If Not TBackup.skipMD5Check
+					'Retrieve meta data
+					fileObject.Head()
+					'ETag mismatch - Delete local file
+					If fileObject.ETag() <> file.ETag()
+						skip = False
+						If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Removing", localFile)
+						DeleteFile(localFile)
+					End If
+				End If
+					
+				If skip
 					If TBackup.msgReceiver Then TBackup.msgReceiver.SendMessage("Skipping", file)
 					Continue
 				End If
