@@ -51,7 +51,7 @@ Type TBackup
 		bbdoc:
 	End Rem
 	Function SetRestoreDirectory(restoreDirectory:String)
-		TBackup.restoreDirectory = restoreDirectory
+		TBackup.restoreDirectory = restoreDirectory.Replace("\", "/")
 	End Function
 
 	Rem
